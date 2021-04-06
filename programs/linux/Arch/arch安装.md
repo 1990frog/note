@@ -262,13 +262,6 @@ $ pacman-key --populate archlinux
 $ pacman-key --populate archlinuxcn
 ```
 
-## 中文输入法
-
-
----
-
-
-
 ## 引导
 ```
 $ pacman -S grub efibootmgr intel-ucode os-prober

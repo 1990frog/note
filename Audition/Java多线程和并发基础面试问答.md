@@ -1,4 +1,3 @@
-vnote_backup_file_826537664 /home/cai/Documents/vnote_notebooks/vnotebook/Audition/Java并发.md
 [TOC]
 
 # 进程和线程之间有什么不同？
