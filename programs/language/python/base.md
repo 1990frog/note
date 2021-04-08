@@ -2,3 +2,7 @@
 
 # 安装pip
 sudo pacman -Ss python-pip
+
+
+
+@staticmethod
