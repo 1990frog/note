@@ -1,9 +1,11 @@
-[TOC]
+[[TOC]]
 
-# 安装系统
+# 安装前准备
+## 下载
 ## 烧盘
 rufus dd模式
 
+# 安装内核
 ## 磁盘分区
 ```
 // 查看磁盘
@@ -18,8 +20,6 @@ $ mkfs.fat -F 32 /dev/nvme0n1p1
 // 设置主分区格式EXT4
 $ mkfs.ext4 /dev/nvme0n1p2
 ```
-todo 分区格式限制
-
 ## 挂载至安装U盘
 U盘是一个系统，将目标磁盘挂载并在其上安装系统，挂载目标是/mnt，它会作为我们系统安装的目标目录
 ```
@@ -27,34 +27,48 @@ $ mount /dev/nvme0n1p2 /mnt
 $ mkdir /mnt/boot
 $ mount /dev/nvme0n1p1 /mnt/boot
 ```
-
-## 编辑镜像源
-```
-$ vim /etc/pacman.d/mirrorlist
-推荐网易源
-## China
-Server = http://mirrors.163.com/archlinux/$repo/os/$arch
-```
-
 ## 安装系统核心组件
 pacstrap是pacman的一个前端
 + base：基础组件
 + linux：Linux内核
 + linux-firmware：系统固件，包含一些驱动程序
 ```
-$pacastrap /mnt base linux linux-firmware
+$ pacastrap /mnt base linux linux-firmware
 ```
+## 生成fstab
+fstab是自动挂载文件系统不可或缺的文件，缺少则无法启动。
+首先exit，退出chroot环境
+然后在咱环境里运行：
+```
+genfstab /mnt > /mnt/etc/fstab
+```
+最后可检验一下目标系统中生成得到的fstab
 
 ## 切换到目标系统
 有的操作只能在chroot中进行，有的只能在外面进行
 ```
 $ arch-chroot /mnt
 ```
+## 引导
+```
+$ pacman -S grub efibootmgr intel-ucode(amd-ucode) os-prober
+$ grub-mkconfig > /boot/grub/grub.cfg
+$ grub-install --target = X86_64-efi --efi-directory = /boot
+```
 
+# 用户
 ## 安装sudo
 arch要自己安装
 ```
-$ pacman -S sudo vi nvim
+$ pacman -S sudo nvim
+```
+
+## 设置root密码
+理论上有了sudo，我们就不必再用root账号了。但这并不表示绝对安全，因为TTY模式下还能输入root账号名来登录root账号，而且默认是没有密码的！
+更重要的是，访客也可以通过ssh等来直接登录！
+```
+$ sudo -i
+$ passwd
 ```
 
 ## 授予sudo权限
@@ -75,46 +89,7 @@ $ passwd [username]
 $ ls /home
 ```
 
-## 安装Grub软件包
-Grub软件包包含Grub启动器的安装/管理工具
-用pacman在chroot环境中装上
-```
-$ pacman -S grub intel-ucode os-prober
-```
-## 安装Grub到硬盘
-接下来把Grub安装到我们MBR的硬盘中
-注意：最后一个参数，它是硬盘的设备节点，而不是启动分区的节点
-```
-$ grub-install --target = x86_64-efi /dev/sda
-```
-生成配置文件
-Grub需要配置文件才能启动，但默认没有生成，需要我们自己来生成
-```
-$ grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-old解决方案
-```
-$ grub-mkconfig > /boot/grub/grub.cfg
-$ grub-install --target = x86_64-efi --efi-directory = /boot
-```
-
-## 生成fstab
-fstab是自动挂载文件系统不可或缺的文件，缺少则无法启动。
-首先exit，退出chroot环境
-然后在咱环境里运行：
-```
-genfstab /mnt > /mnt/etc/fstab
-```
-最后可检验一下目标系统中生成得到的fstab
-
-## 安装Xorg图形服务器
-Linux发行版的图形界面是以Xorg作为后端来实现的
-使用pacstrap来安装Xorg
-```
-$ pacstrap /mnt Xorg
-```
-
+# 网络
 ## 安装网络组件
 Arch linux的网络组件也需要手动安装，而不是自带。
 相应的组件包括：
@@ -133,28 +108,36 @@ $ systemctl enable wpa_supplicant
 $ systemctl enable networkmanager
 ```
 
-## 安装音频组件（todo 蓝牙）
+# 蓝牙
+## 安装核心包
 ```
-$ pacstrap /mnt alsa-utils pulseaudio pulseaudio-alsa
+$ sudo pacman -S bluez
+$ sudo pacman -S bluez-utils
+$ systemctl start bluetooth
+$ systemctl enable bluetooth
 ```
-KDE使用PulseAudio作为音频后端，而PulseAudio的后端则是ALSA
+## win10、arch蓝牙同步
 
-## 安装KDE Plasma
+# 图形界面
+## 安装Xorg图形服务器
+Linux发行版的图形界面是以Xorg作为后端来实现的
+使用pacstrap来安装Xorg
+```
+$ pacman -S Xorg
+```
+## 安装KDE Plasma，SDDM
 Plasma是KDE的桌面环境，也是它的本体。运行以下命令安装
 ```
-$ pacstrap /mnt plasma-meta sddm
+$ pacman -S plasma-meta
 ```
-而plasma-meta安装所有核心组件，而sddm是窗口管理器，用来在Xorg环境下显示图形登录界面，并启动Plasma。
-## 启动SDDM
-SDDM是一个桌面管理器，KDE的登录界面就是由它显示的，登录后也由它负责启动Plasma。
-arch-chroot切换到目标系统，然后启用它
+## 安装SDDM
+SDDM是一个桌面管理器，用来在Xorg环境下显示图形登录界面，并启动Plasma。
+KDE的登录界面就是由它显示的，登录后也由它负责启动Plasma。
 ```
+$ pacman -S sddm
 $ systemctl enable sddm
 ```
-
-第一阶段OK
-
-## 安装KDE组件
+## 安装KDE全家桶
 KDE的所有APP均可按需采用。如果有兴趣，你也可以安装特定分类的应用，或者是——直接上全家桶！
 ```
 $ sudo pacman -S kde-applications-meta
@@ -163,7 +146,7 @@ $ sudo pacman -S kde-applications-meta
 ```
 $ sudo pacman -S kde-applications
 ```
-### 删除用不到的app
+## 删除用不到的app
 ```
 sudo pacman -R kde-games
 sudo pacman -R blinken kanagram khangman
@@ -173,17 +156,26 @@ sudo pacman -R kde-education-meta
 sudo pacman -R kde-education
 ```
 
+# 音频
+## 声音服务
+KDE使用PulseAudio作为音频后端，而PulseAudio的后端则是ALSA
+```
+$ pacstrap /mnt alsa-utils pulseaudio pulseaudio-alsa
+```
+## 蓝牙音频
+```
+$ sudo pacman -S pulseaudio-modules-bt
+```
+
+# 本地化
 ## 安装中文字体
 ArchLinux默认没有中文字体，无法显示中文，必须手动安装
 ```
-$ pacman -S noto-fonts-cjk
-$ pacman -S noto-fonts
-$ pacman -S noto-fonts-emoji
-$ pacman -S wqy-microhei
+$ pacman -S noto-fonts-cjk noto-fonts noto-fonts-emoji wqy-microhei
 ```
 以上选用谷歌开源字体Noto，包括中日韩字体、英文字体以及Emoji字体
 
-## 本地化
+## 方言
 Locale数据，用于控制操作系统的本地化，以支持不同的语音、时间格式等。
 首先打开Locale生成器配置：
 ```
@@ -216,22 +208,38 @@ echo LANG=zh_CN.utf8 > /etc/locale.conf
 ```
 最后用exit命令返回
 
-## 设置KDE中文
-在区域中，设置“Formats”为中文
 
-## 设置主机名
-主机名是自己电脑的标志，在局域网中非常重要。编辑用来存放主机名的文件：
+# 包管理
+## 编辑镜像源
 ```
-sudo vim /etc/hostname
+$ vim /etc/pacman.d/mirrorlist
+推荐网易源
+## China
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 ```
-## 设置root密码
-理论上有了sudo，我们就不必再用root账号了。但这并不表示绝对安全，因为TTY模式下还能输入root账号名来登录root账号，而且默认是没有密码的！
-更重要的是，访客也可以通过ssh等来直接登录！
+## reflector
+首先安装reflector工具
 ```
-$ sudo -i
-$ passwd
+$ sudo pacman -S reflector
 ```
-
+然后执行
+```
+$ sudo reflector --sort rate --threads 100 -c China --save /etc/pacman.d/mirrorlist
+```
+最终生成的mirrorlist如下面的样子
+```
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+Server = https://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.nju.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirrors.nju.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch
+Server =
 ## 设置ArchLinuxCN
 archlinuxcn是由国人社区维护的一个Arch LInux软件源，包含了不少不被官方包含的软件、库等，尤其是国人原创的。
 ```
@@ -261,106 +269,12 @@ $ pacman-key --init
 $ pacman-key --populate archlinux
 $ pacman-key --populate archlinuxcn
 ```
-
-## 引导
-```
-$ pacman -S grub efibootmgr intel-ucode os-prober
-$ grub-mkconfig > /boot/grub/grub.cfg
-$ grub-install --target = X86_64-efi --efi-directory = /boot
+ rsync://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
 ```
 
-# 常用软件
-## 蓝牙
-### 安装蓝牙
-### win10、arch蓝牙同步
-http://bluetoothinstaller.com/bluetooth-command-line-tools/
-
-
-
-# 常用软件
-## sougou拼音
+# 配置
+## 设置主机名
+主机名是自己电脑的标志，在局域网中非常重要。编辑用来存放主机名的文件：
 ```
-$ sudo pacman -S fcitx fcitx-rime fcitx-im kcm-fcitx fcitx-sogoupinyin
+sudo vim /etc/hostname
 ```
-配置输入法
-```
-$ vim ~/.xprofile
-export LANG=zh_CN.UTF-8
-export LC_ALL=zh_CN.UTF-8
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-```
-## openssh
-## base-devel
-## xf86-video-intel
-## ntfs-3g
-## net-tools
-## refind
-## lolcat
-## proxychains
-## flameshot
-## neofetch
-## yay -S aur/dingtalk-electron
-## thefuck
-## reflector
-首先安装reflector工具
-```
-$ sudo pacman -S reflector
-```
-然后执行
-```
-$ sudo reflector --sort rate --threads 100 -c China --save /etc/pacman.d/mirrorlist
-```
-最终生成的mirrorlist如下面的样子
-```
-Server = http://mirrors.163.com/archlinux/$repo/os/$arch
-Server = https://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.nju.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.nju.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch
-Server = rsync://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
-```
-## bashtop
-## zeal
-## Ranger
-## Lazygit
-
-
-# 蓝牙
-```
-sudo pacman -S bluez
-sudo pacman -S bluez-utils
-sudo pacman -Ss pulseaudio-bluetooth
-systemctl start bluetooth
-systemctl enable bluetooth
-
-sudo nvim /etc/bluetooth/main.conf
-
-sudo pacman -S pulseaudio-modules-bt
-```
-
-
-sudo pacman -S fcitx
-sudo pacman -S fcitx-im
-sudo pacman -S fcitx-configtool
-sudo pacman -S fcitx-gtk3 fcitx-gtk4 fcitx-qt4 fcitx-qt5
-yay -S fcitx-sogoupinyin
-
-sudo pacman -S base-devel
-
-
-
-
-sudo pacman -S libappimage
-
-
-
-
-sudo pacman -Ss electronic-wechat
