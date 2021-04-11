@@ -1,4 +1,3 @@
-vnote_backup_file_826537664 /home/cai/Documents/vnote_notebooks/vnotebook/Programs/DataStructure/bobo玩转数据结构.md
 [TOC]
 
 # 种类
@@ -106,7 +105,6 @@ capacity = n
 无处不在的Undo操作（撤销）
 程序调用的系统栈
 
-![](_v_images/20191119224719039_791756788.png)
 A2：A的第二行
 编译器内部系统栈记录每次调用记录的点
 
