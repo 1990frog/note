@@ -1,11 +1,4 @@
-  
-  
-- [下载](#下载 )
-- [将mysql jdbc驱动存放在hive指定目录下](#将mysql-jdbc驱动存放在hive指定目录下 )
-- [hive两个配置文件](#hive两个配置文件 )
-  - [hive-env.sh](#hive-envsh )
-  - [hive-site.xml](#hive-sitexml )
-  
+
 #  下载
   
 [清华源](https://mirrors.tuna.tsinghua.edu.cn/ )
