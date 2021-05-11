@@ -1,5 +1,3 @@
-vnote_backup_file_826537664 /home/cai/Documents/vnotebook/programs/docker/Docker持久化和数据共享.md
-![](_v_images/20200101192617296_518751380.png)
 
 # Docker持久化数据的方案
 + 基于本地文件系统的Volume。可以在执行Docker create或Docker run时，通过-v参数将本机的目录作为容器的数据卷。这部分功能便基于本地文件系统的volume管理。
