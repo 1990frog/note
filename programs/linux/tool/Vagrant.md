@@ -1,4 +1,4 @@
-[TOC]
+[[TOC]]
 
 # 添加box（镜像）
 vagrant box add centos/7

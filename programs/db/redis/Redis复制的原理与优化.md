@@ -13,10 +13,6 @@ vnote_backup_file_826537664 /home/cai/Documents/vnote_notebooks/vnotebook/progra
 容量瓶颈
 QPS瓶颈
 
-![](_v_images/20191208213354504_160893335.png)
-
-![](_v_images/20191208213502290_1658163323.png)
-
 # 主从复制作用
 数据副本
 扩展读性能
