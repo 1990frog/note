@@ -1,4 +1,4 @@
-[TOC]
+[[TOC]]
 
 # jps 查看hotsopt进程
 jps -l
