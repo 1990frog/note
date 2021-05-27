@@ -10,10 +10,6 @@
 `mvn clean package -Dmaven.test.skip=true`
 
 
-
-
-
-
 jmap
 
 # springboot指定外部配置文件
@@ -21,3 +17,6 @@ jmap
 
 # springboot指定端口
 `java -jar jar.jar --server.port=8080`
+
+终端中文乱码
+java -Dfile.encoding=utf-8 -jar xxx.jar
