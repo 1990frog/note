@@ -1,4 +1,4 @@
-[[TOC]]
+[TOC]
 
 当然除了 Python 自身的特点，Python 还有强大的开发者工具。在数据科学领域，Python 有许多非常著名的工具库：比如科学计算工具 NumPy 和 Pandas 库，深度学习工具 Keras 和 TensorFlow，以及机器学习工具 Scikit-learn，使用率都非常高。
 

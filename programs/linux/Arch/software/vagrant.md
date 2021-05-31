@@ -20,3 +20,6 @@ vagrant ssh
 
 # 查看状态
 vagrant status
+
+# 查看ssh
+vagrant ssh-config

@@ -71,8 +71,8 @@ public class SwaggerConfiguration {
 # 参数描述
 ```
 @ApiImplicitParams({
-            @ApiImplicitParam(name = "param", value = "param", required = true, paramType = "query", dataType = "String")
-    })
+	@ApiImplicitParam(name = "param", value = "param", required = true, paramType = "query", dataType = "String")
+})
 ```
 
 # 实体类
