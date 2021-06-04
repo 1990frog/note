@@ -1,5 +1,10 @@
 [TOC]
 
+# 将本地包添加至仓库
+```
+> mvn install:install-file -Dfile=path/xxx.jar -DgroupId=com.aspose -DartifactId=DartifactId -Dversion=Dversion -Dpackaging=jar -Dclassifier=Dclassifier
+```
+
 # 创建Maven的普通Java项目
 ```
 > mvn archetype:create
