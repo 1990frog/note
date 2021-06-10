@@ -2,12 +2,23 @@
 
 # 安装
 ```
-pacman -S refind
+> sudo pacman -S refind
 ```
-# 运行
+
+# 初始化
 ```
-sudo /usr/bin/refind-install
+> refind-install
 ```
+
+# 引导内核
+```
+> vim refind_linux.conf
+"Boot with standard options"  "ro root=UUID=084f544a-7559-4d4b-938a-b920f59edc7e splash=silent quiet showopts "
+"Boot to single-user mode"    "ro root=UUID=084f544a-7559-4d4b-938a-b920f59edc7e splash=silent quiet showopts single"
+"Boot with minimal options"   "ro root=UUID=084f544a-7559-4d4b-938a-b920f59edc7e"
+# This line is a comment
+```
+
 # 配置文件
 /boot/EFI/refind/refind.conf
 ```

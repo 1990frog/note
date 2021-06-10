@@ -92,3 +92,7 @@ TryExec=/usr/local/bin/dwm
 Icon=/home/cai/Code/dwm/dwm.png
 Type=Application
 ```
+
+
+# 终端支持emoji
+yay -S libxft-bgra

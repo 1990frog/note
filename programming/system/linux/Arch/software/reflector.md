@@ -16,7 +16,7 @@
 > reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
-## 选择在最近 12 小时内同步的，并且是位于法国或德国的镜像，然后根据下载速度进行排序，最后将结果覆写到 /etc/pacman.d/mirrorlist 文件内
+## 选择在最近 12 小时内同步的，并且是位于指定国家的镜像，然后根据下载速度进行排序，最后将结果覆写到 /etc/pacman.d/mirrorlist 文件内
 ```
 > reflector --country China --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```

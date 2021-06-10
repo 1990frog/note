@@ -1,13 +1,22 @@
 [TOC]
 
-# 分区
-查看磁盘
+# fdisk
+
+# cfdisk
 ```
-> lsblk
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-nvme0n1      8:0    0 1000G  0 disk
+# 查看磁盘
+> fdisk -l
+
+# 分区，设置BOOT与HOME
+> cfdisk /dev/nvme0n1
+
+# EFI分区格式要求FAT32
+> mkfs.fat -F 32 /dev/nvme0n1p1
+
+# 设置主分区格式EXT4
+> mkfs.ext4 /dev/nvme0n1p2
 ```
-格式化
+# gdisk
 ```
 > gdisk /dev/nvme0n1
 Partition table scan:
@@ -59,52 +68,3 @@ The operation has completed successfully.
 # 格式化主目录
 > mkfs.ext4 /dev/nvme0n1p2
 ```
-
-# 挂载
-```
-> mount /dev/nvme0n1p2 /mnt
-> mkdir /mnt/boot
-> mount /dev/nvme0n1p1 /mnt/boot
-```
-
-# 安装linux
-## 找源
-[reflector]
-## 安装
-```
-> pacstrap /mnt base linux linux-firmware
-```
-
-# 挂载
-uuid模式：`-U`，默认目录模式
-```
-> genfstab -U /mnt >> /mnt/etc/fstab
-```
-
-# bootctl启动器
-```
-> arch-chroot /mnt
-> bootctl install
-> vim /boot/loader/loader.conf
-default arch
-timeout 3
-> vim /boot/loader/entries/arch.conf
-title   Arch Linux
-linux   /vmlinuz-linux
-initrd  /initramfs-linux.img
-> echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p2) rw" >> /boot/loader/entries/arch.conf
-> bootctl update
-> systemctl enable fstrim.timer
-```
-
-# 进入系统
-```
-> arch-chroot /mnt
-```
-
-# 设置时区
-```
-> ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-```
-
-# 设置语言
