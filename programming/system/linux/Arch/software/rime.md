@@ -26,6 +26,27 @@ export LC_CTYPE="zh_CN.UTF-8"
 ibus	~/.config/ibus/rime
 fcitx	~/.config/fcitx/rime
 fcitx5	/usr/share/rime-data/
+
+
+# 配置
+```
+default.yaml
+```
+四叶草
+default.custom.yaml
+
+patch:
+  "menu/page_size": 8
+  schema_list:
+    - schema: clover
+
+
+繁简切换 Ctrl+Shift+2 或 Ctrl+Shift+f 。
+emoji开关 Ctrl+Shift+3
+符号输入 Ctrl+Shift+4
+ascii标点切换 Ctrl+Shift+5 、 Ctrl+, 或 Ctrl+。
+全半角切换 Ctrl+Shift+6 、 Shift+Space
+
 # 安装各种词库
 
 # 使用sougou皮肤

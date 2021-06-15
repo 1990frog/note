@@ -4,7 +4,9 @@
 + compton，picom（透明）
 + feh（背景）
 + slock（锁屏）
-+ dmenu（bar）
++ dmenu（快速启动）
++ xbacklight（调节亮度）
++ acpilight（intel集显调整亮度）
 + adobe-source-code-pro-fonts（字体Source Code Pro）
 + nerd-fonts-complete（字体Sauce Code Pro Nerd Font Mono）
 
@@ -64,23 +66,28 @@ git版本
 # emoji
 yay -S libxft-bgra
 
+# java支持
+```
+> sudo pacman -S wmname
+> vim ~/.xinitrc
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+wmname LG3D
+```
+
 # .xinitrc 文件
 ```
-export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS="@im=fcitx5"
+picom &
+fcitx5 &
+feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/wallhaven-w8yy6p.png &
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+wmname LG3D
 
-export LANG="zh_CN.UTF-8"
-export LC_CTYPE="zh_CN.UTF-8"
-
-# fcitx5 &
-# xrandr --output DisplayPort-2 --mode 3840x2160 --rate 60
-# feh --recursive --randomize --bg-fill ~/Pictures/wallhaven-zxpx6y.png &
-# picom -b &
-# exec dwm
+exec dwm
 ```
 
-# sddm
+# sddm 登录管理器
 ```
 > vim /usr/share/xsessions/dwm.desktop
 
@@ -93,6 +100,35 @@ Icon=/home/cai/Code/dwm/dwm.png
 Type=Application
 ```
 
+# script
+```
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };   #定义dmenu的快捷键功能
+static const char *termcmd[]  = { "alacritty", NULL };   #定义alacritty终端的快捷键功能
+static const char *volup[] = { "amixer", "-qM", "set", "Master", "2%+", "umute", NULL };
+static const char *voldown[] = { "amixer", "-qM", "set", "Master", "2%-", "umute", NULL };   #定义系统音量大小调节的快捷键功能
+static const char *mute[] = { "amixer", "-qM", "set", "Master", "toggle", NULL };   #定义开/关静音的快捷键功能
+static const char *lightup[] = { "xbacklight", "-inc", "2", NULL };
+static const char *lightdown[] = { "xbacklight", "-dec", "2", NULL };   #定义屏幕亮度调节的快捷键功能
+static const char *chromium[]  = { "chromium", "--disk-cache-dir=/tmp/chromium", NULL };   #定义chromium浏览器的快捷键功能
+static const char *dolphin[]  = { "dolphin", NULL };   #定义dolphin文件管理器的快捷键功能
+```
 
-# 终端支持emoji
-yay -S libxft-bgra
+# dmenu更换rofi
+```
+> vim config.def.h
+- static const char *dmenucmd[] = { "demnu", NULL };
++ static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
+
+> vim dwm.c
+void
+spawn(const Arg *arg)
+{
+-        //if (arg->v == dmenucmd)
++        dmenumon[0] = '0' + selmon->num;
+```
+
+# key
+单个按键像Fn或者多媒体键必须要用16进制数来表示，可以用xev程序来获得。或者查看 /usr/include/X11/XF86keysym.h 中的定义。
+```
+{ 0,                 0xff00,    spawn,       {.v = <keybindname> } }
+```

@@ -20,3 +20,10 @@ $ sudo /etc/rc.d/openntpd start
 修改rc.conf的DAEMONS里面加上@openntpd，确保开机后台运行
 $ sudo nano /etc/rc.conf
 
+
+
+
+## 更新系统时间
+```
+> timedatectl set-ntp true
+```
