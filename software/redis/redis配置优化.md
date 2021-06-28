@@ -1,4 +1,3 @@
-vnote_backup_file_826537664 /home/cai/Documents/vnote_notebooks/vnotebook/programs/redis/jedis配置优化.md
 # redis连接池使用
 
 初始化Jedis连接池，通常来讲JedisPool是单例的

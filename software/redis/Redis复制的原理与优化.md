@@ -1,4 +1,3 @@
-vnote_backup_file_826537664 /home/cai/Documents/vnote_notebooks/vnotebook/programs/redis/Redis复制的原理与优化.md
 [TOC]
 
 # Redis复制的原理与优化

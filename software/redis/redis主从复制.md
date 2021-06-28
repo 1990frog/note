@@ -1,4 +1,3 @@
-vnote_backup_file_826537664 /home/cai/Documents/vnote_notebooks/vnotebook/programs/redis/redis主从复制与哨兵机制.md
 [TOC]
 
 # 用到的命令
