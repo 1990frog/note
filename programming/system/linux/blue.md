@@ -16,3 +16,7 @@ windows
 linux
 1. 切换root，进入/var/lib/bluetooth
 2. 进入根目录编辑info文件，将key切换为LTK
+
+
+
+archlinuxcn/pulseaudio-modules-bt
