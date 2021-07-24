@@ -132,3 +132,5 @@ spawn(const Arg *arg)
 ```
 { 0,                 0xff00,    spawn,       {.v = <keybindname> } }
 ```
+
+# 退出

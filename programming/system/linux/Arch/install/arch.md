@@ -54,6 +54,7 @@ uuid模式：`-U`，默认目录模式
 # 设置时区
 ```
 > ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+> hwclock --systohc
 ```
 坑：双系统UTC与local
 
@@ -76,3 +77,4 @@ Locale数据，用于控制操作系统的本地化，以支持不同的语音�
 > su -i
 > echo LANG=zh_CN.utf8 > /etc/locale.conf
 ```
+
