@@ -34,4 +34,8 @@ https://github.com/zsh-users
 + gp = git push
 
 ## git-open
-git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
+```
+> git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
+> git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+> git clone https://github.com/zsh-users/zsh-autosuggestions.git
+```

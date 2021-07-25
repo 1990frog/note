@@ -1,5 +1,9 @@
 [TOC]
 
+# wiki
+[四叶草](https://github.com/fkxxyz/rime-cloverpinyin/wiki)
+[官方模糊子](https://gist.github.com/lotem/2320943)
+
 # 安装
 ## fcitx5
 ```

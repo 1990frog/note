@@ -23,3 +23,9 @@ nvm use 15
 
 ## ls
 nvm ls
+
+# 安装yarn
+```
+> npm i install --global yarn
+> sudo ln -s /home/cai/.nvm/versions/node/v15.14.0/bin/yarn /usr/bin/yarnjs
+```

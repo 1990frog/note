@@ -1,9 +1,80 @@
-连接配置是正确的，但运行时可以看到警告。
-可能的原因：系统时间不匹配。如果VMess是您的代理协议，它需要客户端和服务器的系统时间差小于90秒，否则它将拒绝连接。
-解决方案（Windows）：
-方法 1：打开设置，选择“时间和语言”，启用“自动设置时间”。如果该选项已经启用，请点击“立即同步”按钮。
-方案 2：打开控制面板，切换到“类别”视图，选择“时钟和区域”，然后点击“日期和时间”，在打开的对话框中选择标签“Internet 时间”，然后点击“更改设置”按钮并勾选“与 Internet 时间服务器同步”。
-解决方案（Linux）：
-方法 1：使用 system-timeyncd，运行 sudo systemctl enable systemd-timesyncd --now
-方法 2：使用 Chrony (opens new window)来同步时间。
-解决方案（macOS）：打开系统首选项，单击“日期 & 时间”，并开启“自动设置日期和时间”。
+[TOC]
+
+# 时间问题
+
+
+# 配置文件
+```
+{
+  "log":{},
+  "dns":{},
+  "stats":{},
+  "inbounds":[
+    {
+      "port":"1080",
+      "protocol":"socks",
+      "settings":{
+        "auth":"noauth",
+        "udp":true
+      },
+      "tag":"in-0"
+    },
+    {
+      "port":"1081",
+      "protocol":"http",
+      "settings":{},
+      "tag":"in-1"
+    }
+  ],
+  "outbounds":[
+    {
+      "protocol":"vmess",
+      "settings":{
+        "vnext":[
+          {
+            "address":"xxxx",
+            "port":xxxx,
+            "users":[
+              {
+                "id":"xxxx",
+                "alterId":xxxx
+              }
+            ]
+          }
+        ]
+      },
+      "tag":"out-0",
+      "streamSettings":{
+        "network":"tcp",
+        "security":"none",
+        "tcpSettings":{}
+      }
+    },
+    {
+      "tag":"direct",
+      "protocol":"freedom",
+      "settings":{}
+    },
+    {
+      "tag":"blocked",
+      "protocol":"blackhole",
+      "settings":{}
+    }
+  ],
+  "routing":{
+    "domainStrategy":"IPOnDemand",
+    "rules":[
+      {
+        "type":"field",
+        "ip":[
+          "geoip:private"
+        ],
+        "outboundTag":"direct"
+      }
+    ]
+  },
+  "policy":{},
+  "reverse":{},
+  "transport":{}
+}
+```

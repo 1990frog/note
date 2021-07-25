@@ -64,7 +64,9 @@ git版本
 + slock-blur_pixelated_screen-1.4.diff（像素锁屏）
 
 # emoji
-yay -S libxft-bgra
+```
+> yay -S libxft-bgra
+```
 
 # java支持
 ```
