@@ -754,3 +754,21 @@ script:
 
         return "Others"
 ```
+
+# systemd服务
+```
+> sudo vim /lib/systemd/system/clash@.service
+
+[Unit]
+Description=A rule based proxy in Go for %i.
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+Restart=on-abort
+ExecStart=/usr/bin/clash
+
+[Install]
+WantedBy=multi-user.target
+```

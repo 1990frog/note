@@ -1,5 +1,8 @@
 [TOC]
 
+# wiki
+[General recommendations](https://wiki.archlinux.org/title/General_recommendations_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+
 # 前期准备
 + [下载](https://archlinux.org/download/)
 + rufus dd模式烧盘
@@ -26,7 +29,7 @@ nvme0n1      8:0    0 1000G  0 disk
 [reflector]
 ## 安装
 ```
-> pacstrap /mnt base linux linux-firmware
+> pacstrap /mnt base linux linux-firmware base-devel
 ```
 切记安装网络
 [dhcpcd]
@@ -43,7 +46,7 @@ uuid模式：`-U`，默认目录模式
 + [bootctl]
 + [grub]
 
-# 进入系统
+# Chroot
 ```
 > arch-chroot /mnt
 ```
@@ -57,12 +60,6 @@ uuid模式：`-U`，默认目录模式
 > hwclock --systohc
 ```
 坑：双系统UTC与local
-
-# 主机名
-主机名是自己电脑的标志，在局域网中非常重要。编辑用来存放主机名的文件：
-```
-> sudo vim /etc/hostname
-```
 
 # 本地化
 Locale数据，用于控制操作系统的本地化，以支持不同的语音、时间格式等。
@@ -78,3 +75,11 @@ Locale数据，用于控制操作系统的本地化，以支持不同的语音�
 > echo LANG=zh_CN.utf8 > /etc/locale.conf
 ```
 
+# 主机名
+主机名是自己电脑的标志，在局域网中非常重要。编辑用来存放主机名的文件：
+```
+> sudo vim /etc/hostname
+```
+
+# 用户
+[user]

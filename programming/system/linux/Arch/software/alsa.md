@@ -11,3 +11,6 @@
 pulseaudio-alsa，pulseaudio 间接解决声卡独占
 
 # alsamixer
+
+
+https://www.freesion.com/article/89381273088/
