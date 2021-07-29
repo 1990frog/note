@@ -94,3 +94,9 @@ conda deactivate
 ```
 conda deactivate
 ```
+
+
+# error
+terminals database is inaccessible
+.zshrc
++ export TERMINFO=/usr/share/terminfo
