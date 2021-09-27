@@ -136,3 +136,4 @@ spawn(const Arg *arg)
 ```
 
 # 退出
+super+shift+q
