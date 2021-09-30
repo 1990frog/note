@@ -10,3 +10,13 @@ $ pacman -S noto-fonts-cjk noto-fonts noto-fonts-emoji wqy-microhei
 
 + adobe-source-code-pro-fonts（字体Source Code Pro）
 + nerd-fonts-complete（字体Sauce Code Pro Nerd Font Mono）
+
+在安装桌面环境/窗口管理器之前，也许你会先安装些美观的字体。Dejavu 是不错的字体集。英文字体优先选择dejavu字体
+pacman -S ttf-dejavu
+
+
+对于中文字体，开源的文泉驿正黑矢量字体是不错的选择，它还内嵌了9pt-12pt的点阵宋体：
+pacman -S wqy-zenhei
+pacman -S wqy-microhei
+
+
