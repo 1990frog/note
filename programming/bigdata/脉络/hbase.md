@@ -74,6 +74,27 @@ Row2 | {id,name,address,title,email}
 
 ![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/2021-11-14_15-52_1.png)
 
+# HBase的架构图
+
+![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/v2-f9029a2beaf2b07d9ae949013ddca351_r.jpg)
+
+1、Client客户端，它提供了访问HBase的接口，并且维护了对应的cache来加速HBase的访问。
+
+2、Zookeeper存储HBase的元数据（meta表），无论是读还是写数据，都是去Zookeeper里边拿到meta元数据告诉给客户端去哪台机器读写数据
+
+3、HRegionServer它是处理客户端的读写请求，负责与HDFS底层交互，是真正干活的节点。
+
+总结大致的流程就是：client请求到Zookeeper，然后Zookeeper返回HRegionServer地址给client，client得到Zookeeper返回的地址去请求HRegionServer，HRegionServer读写数据后返回给client。
+
+
+
+
+
+
+
+
+
+
 # 部署
 conf文件夹
 修改hbase-env.sh
