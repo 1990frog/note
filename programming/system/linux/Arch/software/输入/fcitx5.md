@@ -107,10 +107,10 @@ https://www.fkxxyz.com/d/ssfconv2/
     - derive/([iu])a(o|ng?)$/a$1$2/    # tain => tian
   
 # 关闭emoji
-
 vim /usr/share/rime-data/clover.schema.yaml
-
-    #emoji_suggestion:
+```
+#emoji_suggestion:
     #  opencc_config: emoji.json
     #  option_name: emoji_suggestion
     #  tips: all
+```

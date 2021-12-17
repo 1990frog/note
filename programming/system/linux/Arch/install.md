@@ -2,12 +2,19 @@
 
 # wiki
 [General recommendations](https://wiki.archlinux.org/title/General_recommendations_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+[引导](https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+[多媒体](https://wiki.archlinux.org/title/Category:Multimedia_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+[核心工具](https://wiki.archlinux.org/title/Core_utilities_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 
 # 前期准备
 + [下载](https://archlinux.org/download/)
 + rufus dd模式烧盘
 
-# 分区
+# 驱动
+
+
+# 磁盘
+## 分区
 查看磁盘
 ```
 > lsblk
@@ -17,7 +24,7 @@ nvme0n1      8:0    0 1000G  0 disk
 格式化
 [xdisk]
 
-# 挂载
+## 挂载
 ```
 > mount /dev/nvme0n1p2 /mnt
 > mkdir /mnt/boot
@@ -25,7 +32,7 @@ nvme0n1      8:0    0 1000G  0 disk
 ```
 
 # 安装linux
-## 找源
+## 安装软件仓库源
 [reflector]
 ## 安装
 ```
@@ -53,6 +60,8 @@ uuid模式：`-U`，默认目录模式
 
 # 显示
 [xorg]
+[dwm]
+[kde]
 
 # 设置时区
 ```
