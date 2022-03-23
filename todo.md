@@ -34,3 +34,11 @@ mysql本身不是为分布式设计的，但是后来大家发现一个机器存
 hadoop是用来处理OLAP workload的，就是大量的scan，大量的aggregation。hadoop本身就是为分布式设计的。
 
 mysql+hadoop当然是可以的，而且应该算是很经典的用例。mysql数据库在前端跑，然后每隔一段时间比如每天把mysql的数据导入到hadoop中做数据分析。
+
+
+-----------------
+
+jvm 优化
+elasticsearch
+
+spark
