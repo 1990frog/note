@@ -143,8 +143,87 @@ python
 动作 | 含义
 -----|-------------------------------------------------------
 a    | 新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)
+i    | 插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)
+r    | 追加， r 将后面指定文件的内容追加到当前匹配行的后面(当前行)
+w    | 将匹配到的行内容另存为其他文件中
+
+
+
 c    | 取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行
 d    | 删除，因为是删除啊，所以 d 后面通常不接任何东东
-i    | 插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)
+
 p    | 打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行
 s    | 取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g
+
+
+查询
+p打印
+
+增加
+a(append)行后追加
+i(insert)行前追加
+r(read)外部文件读入，行后追加
+w(write)匹配行写入外部文件
+
+删除
+d(delete)删除
+
+修改
+s/old/new 将行内第一个old替换成new
+s/old/new/g 将行内全部的old替换成new
+s/old/new/2g 将行内前两个old替换成new
+s/old/new/ig 将行内old全部替换为new，忽略大小写
+
+
+sed [option] "/pattern/command" file
+# pattern的用法
+
+LineNumber  直接指定行号
+sed -n "17p" file 
+打印file文件的第17行
+
+StartLine,EndLine 指定起始行号和结束行号
+sed -n "10,20p" file
+
+Starting,+N 指定起始行号，然后后面N行
+sed -n "10,+5p" file
+
+/pattern1/ 正则表达式匹配的行
+sed -n "/^root/p" file
+
+/pattern1/,/pattern2/ 正则表达式区间
+sed -n "/^ftp/,/^mail/p" file
+
+LineNumber,/pattern1/ 从指定行号开始匹配，直到匹配pattern1的行
+sed -n "4,/^hdfs/p" file
+
+/pattern1/,LineNumber
+sed -n "/^hdfs/,4p" file
+
+
+
+---
+
+sed -i '/^hdfs/,/^yarn/i xxxxxx' xxxn
+
+---
+
+替换
+
+s/old/new/ 查找并替换第一个
+s/old/new/g 查找并替换全部
+s/old/new/2 只替换第2个
+s/old/new/2g 同第二个开始匹配，替换所有
+s/old/new/ig 忽略大小写替换1全部
+
+= 显示匹配数据的行号
+
+sed -n '/root/cai/=' xxx
+
+
+---
+
+反向引用
+
+sed -i 's/had..p/&s/g' xxx
+sed -i 's/\(had..p\)/\1s/g' xxx
