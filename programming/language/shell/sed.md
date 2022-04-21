@@ -63,7 +63,7 @@ GNU sed 主页：<https://www.gnu.org/software/sed/>。
 ➜  shell ls
 func.sed  sed.md
 ➜  shell cat sed.md
-PYTHON
+PYTHON
 PyTHon
 java
 ➜  shell sed -n 's/PYTHON/java/g;p' sed.md
@@ -227,3 +227,15 @@ sed -n '/root/cai/=' xxx
 
 sed -i 's/had..p/&s/g' xxx
 sed -i 's/\(had..p\)/\1s/g' xxx
+
+
+存在变量使用双引号
+
+```shell
+#!/bin/bash
+
+old_str=hadoop
+new_str=HADOOP
+
+sed -i "s/$old_str/$new_str/g" xxx
+```
