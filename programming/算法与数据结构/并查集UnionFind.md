@@ -1,4 +1,3 @@
-vnote_backup_file_826537664 /home/cai/Documents/vnotebook/programs/datastructure/并查集UnionFind.md
 [TOC]
 
 # 连接问题
