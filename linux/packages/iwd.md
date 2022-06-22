@@ -1,4 +1,3 @@
-[TOC]
 
 # 操作页面
 ```
@@ -32,6 +31,7 @@ wlan0
 ```
 > known-networks list
 ```
+
 # 忘记已知网络
 ```
 > known-networks SSID forget
