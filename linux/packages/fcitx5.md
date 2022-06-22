@@ -1,5 +1,20 @@
 [TOC]
 
+# install fcitx
+pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool
+# install rime
+sudo pacman -S fcitx5-rime
+
+
+
+
+
+
+
+
+------------
+
+
 # wiki
 [四叶草](https://github.com/fkxxyz/rime-cloverpinyin/wiki)
 [官方模糊音](https://gist.github.com/lotem/2320943)
