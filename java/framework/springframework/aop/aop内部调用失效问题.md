@@ -17,7 +17,7 @@ public class ThisErrorAop {
     /**
      * 定义切点：如果有此注解的地方
      */
-    @Pointcut("execution(public * com.action.aop.error.ThisErrorController.*())")
+    @Pointcut("execution(public * com.action.aop.error.ThisEr rorController.*())")
     public void serviceAspect() {
     }
 
