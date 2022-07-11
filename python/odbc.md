@@ -1,3 +1,5 @@
+
+
 sudo pacman -S unixodbc freetds
 
 vim /etc/freetds/freetds.conf

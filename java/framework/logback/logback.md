@@ -1,4 +1,21 @@
-[TOC]
+<!-- TOC -->
+
+- [具体的日志功能实现](#%E5%85%B7%E4%BD%93%E7%9A%84%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0)
+- [日志实现的抽象层（门面与实现的区别）](#%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%B1%82%E9%97%A8%E9%9D%A2%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8C%BA%E5%88%AB)
+- [日志发展历程](#%E6%97%A5%E5%BF%97%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B)
+- [demo](#demo)
+- [日志实现寻址](#%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0%E5%AF%BB%E5%9D%80)
+- [springboot配置日志](#springboot%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97)
+- [日志使用](#%E6%97%A5%E5%BF%97%E4%BD%BF%E7%94%A8)
+- [日志级别](#%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB)
+- [日志配置](#%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE)
+- [configuration子节点](#configuration%E5%AD%90%E8%8A%82%E7%82%B9)
+- [常用pattern介绍](#%E5%B8%B8%E7%94%A8pattern%E4%BB%8B%E7%BB%8D)
+- [root&logger](#rootlogger)
+- [日志实战](#%E6%97%A5%E5%BF%97%E5%AE%9E%E6%88%98)
+- [SiftingAppender](#siftingappender)
+
+<!-- /TOC -->
 
 # 具体的日志功能实现
 + JUL

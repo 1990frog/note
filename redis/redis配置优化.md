@@ -1,3 +1,8 @@
+<!-- TOC -->
+
+- [redis连接池使用](#redis%E8%BF%9E%E6%8E%A5%E6%B1%A0%E4%BD%BF%E7%94%A8)
+
+<!-- /TOC -->
 # redis连接池使用
 
 初始化Jedis连接池，通常来讲JedisPool是单例的
