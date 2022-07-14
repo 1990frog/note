@@ -1,12 +1,12 @@
 [TOC]
 
 # 未使用pipeline
-![](https://gitee.com/caijingquan/imagebed/raw/master/1610693267_20191128094849466_1313469413.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1610693267_20191128094849466_1313469413.png)
 # 使用pipeline
-![](https://gitee.com/caijingquan/imagebed/raw/master/1610693267_20191128094920576_928220474.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1610693267_20191128094920576_928220474.png)
 
 # 性能差别对比
-![](https://gitee.com/caijingquan/imagebed/raw/master/1610693267_20191128095112294_1780743983.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1610693267_20191128095112294_1780743983.png)
 
 ```java
 public class PipelineTest {

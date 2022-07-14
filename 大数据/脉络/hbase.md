@@ -32,9 +32,9 @@ HDFS是文件系统，而HBase是数据库，其实也没啥可比性。「你�
 
 # 列式存储
 行式存储：
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/v2-58697c09af0a80f04af4b2231e6a0813_r.jpg)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/v2-58697c09af0a80f04af4b2231e6a0813_r.jpg)
 行式存储转换列式存储：
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/v2-8b4c896c9decec36b89e6b2fee968c6a_r.jpg)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/v2-8b4c896c9decec36b89e6b2fee968c6a_r.jpg)
 
 可以很简单的发现，无非就是把每列抽出来，然后关联上Id
 Key-Value
@@ -50,11 +50,11 @@ HBase的列（Column）都得归属到列族（Column Family）中。在HBase中
 
 什么是列修饰符？先有列族后有列，在列族下用列修饰符来标识一列。
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/2021-11-14_15-39.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/2021-11-14_15-39.png)
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/2021-11-14_15-39_1.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/2021-11-14_15-39_1.png)
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/2021-11-14_15-47.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/2021-11-14_15-47.png)
 
 HBase表的每一行中，列的组成都是灵活的，行与行之间的列不需要相同
 
@@ -63,20 +63,20 @@ RowKey | Columns
 Row1 | {id,name,phone}
 Row2 | {id,name,address,title,email}
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/v2-de19abe0e27b1660e3474bd11aaf8d61_r.jpg)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/v2-de19abe0e27b1660e3474bd11aaf8d61_r.jpg)
 
 换句话说：一个列族下可以任意添加列，不受任何限制
 
 数据写到HBase的时候都会被记录一个时间戳，这个时间戳被我们当做一个版本。比如说，我们修改或者删除某一条的时候，本质上是往里边新增一条数据，记录的版本加一了而已。
 
 比如现在我们有一条记录：
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/2021-11-14_15-52.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/2021-11-14_15-52.png)
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/2021-11-14_15-52_1.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/2021-11-14_15-52_1.png)
 
 # HBase的架构图
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/https://gitee.com/caijingquan/imagebed/v2-f9029a2beaf2b07d9ae949013ddca351_r.jpg)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/https://gitee.com/caijingquan/imagebed/v2-f9029a2beaf2b07d9ae949013ddca351_r.jpg)
 
 1、Client客户端，它提供了访问HBase的接口，并且维护了对应的cache来加速HBase的访问。
 

@@ -20,9 +20,9 @@ parallelStream并发执行，除了主线程，其他线程不在事务上下文
 流不存储数据
 
 # 概览
-![](https://gitee.com/caijingquan/imagebed/raw/master/1606383369_20201126162306527_23771.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1606383369_20201126162306527_23771.png)
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607911095_20201214095806606_8351.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607911095_20201214095806606_8351.png)
 
 # Stream
 ## 什么是Stream
@@ -68,7 +68,7 @@ stream3.forEach(System.out::println);
 + stream是顺序流，由主线程按顺序对流执行操作
 + parallelStream是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求
 
-![v2-135543d99ebbaad755b7b0c520b83515_r](https://gitee.com/caijingquan/imagebed/raw/master/1606440739_20201127093213447_20080.jpg)
+![v2-135543d99ebbaad755b7b0c520b83515_r](https://raw.githubusercontent.com/1990frog/imagebed/default/1606440739_20201127093213447_20080.jpg)
 
 如果流中的数据量足够大，并行流可以加快处速度。
 
@@ -79,7 +79,7 @@ Optional<Integer> findFirst = list.stream().parallel().filter(x->x>6).findFirst(
 
 # 遍历/匹配（foreach/find/match）
 Stream也是支持类似集合的遍历和匹配元素的，只是Stream中的元素是以Optional类型存在的。Stream的遍历、匹配非常简单。
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607910538_20201127093424876_23702.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607910538_20201127093424876_23702.png)
 
 ```java
 public class StreamTest {
@@ -104,7 +104,7 @@ public class StreamTest {
 # 筛选（filter）
 筛选，是按照一定的规则校验流中的元素，将符合条件的元素提取到新的流中的操作。
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607910541_20201127093544195_24097.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607910541_20201127093544195_24097.png)
 
 ```java
 public class StreamTest {
@@ -119,7 +119,7 @@ public class StreamTest {
 # 聚合（max/min/count)
 max、min、count这些字眼你一定不陌生，没错，在mysql中我们常用它们进行数据统计。Java stream中也引入了这些概念和用法，极大地方便了我们对集合、数组的数据统计工作。
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607910541_20201127093653763_19832.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607910541_20201127093653763_19832.png)
 
 ```java
 public class StreamTest {
@@ -146,9 +146,9 @@ public class StreamTest {
 + map：接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。
 + flatMap：接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流。
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607910542_20201127093948641_31675.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607910542_20201127093948641_31675.png)
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607910543_20201127093955024_13197.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607910543_20201127093955024_13197.png)
 
 ```java
 // 英文字符串数组的元素全部改为大写。整数数组每个元素+3
@@ -211,7 +211,7 @@ public class StreamTest {
 ```
 # 归约(reduce)
 归约，也称缩减，顾名思义，是把一个流缩减成一个值，能实现对集合求和、求乘积和求最值操作。
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607910543_20201127094332331_24054.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607910543_20201127094332331_24054.png)
 
 ```java
 // 求Integer集合的元素之和、乘积和最大值
@@ -341,7 +341,7 @@ public class StreamTest {
 + 分区：将stream按条件分为两个Map，比如员工按薪资是否高于8000分为两部分。
 + 分组：将集合分为多个Map，比如员工按性别分组。有单级分组和多级分组。
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607910543_20201214094854734_6425.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607910543_20201214094854734_6425.png)
 
 ```java
 public class StreamTest {
@@ -466,9 +466,9 @@ public class StreamTest {
 
 # 提取/组合
 流也可以进行合并、去重、限制、跳过等操作。
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607911008_20201214095600869_7747.png)
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607911008_20201214095608668_1447.png)
-![](https://gitee.com/caijingquan/imagebed/raw/master/1607911008_20201214095616582_7360.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607911008_20201214095600869_7747.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607911008_20201214095608668_1447.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1607911008_20201214095616582_7360.png)
 
 ```java
 public class StreamTest {

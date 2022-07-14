@@ -138,5 +138,5 @@ GET _analyze?pretty
 
 
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/1610694014_20200331233215019_794841509.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1610694014_20200331233215019_794841509.png)
 

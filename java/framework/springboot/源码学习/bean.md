@@ -217,7 +217,7 @@ public class MyBeanImport implements ImportBeanDefinitionRegistrar {
 + spring框架启动流程
 
 ## refresh方法调用了13个子方法
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602319078_20200222071240161_1132654311.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602319078_20200222071240161_1132654311.png)
 
 ```java
 @Override

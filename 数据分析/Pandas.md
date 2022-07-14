@@ -135,11 +135,11 @@ df2.columns = df2.columns.str.title()
 ```
 查找空值
 数据量大的情况下，有些字段存在空值 NaN 的可能，这时就需要使用 Pandas 中的 isnull 函数进行查找。比如，我们输入一个数据表如下：
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321762_20200830230520049_984966220.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321762_20200830230520049_984966220.png)
 如果我们想看下哪个地方存在空值 NaN，可以针对数据表 df 进行 df.isnull()，结果如下：
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321762_20200830230534270_16461040.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321762_20200830230534270_16461040.png)
 如果我想知道哪列存在空值，可以使用 df.isnull().any()，结果如下：
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321763_20200830230547012_21912450.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321763_20200830230547012_21912450.png)
 
 # 使用apply函数对数据进行清洗
 
@@ -173,7 +173,7 @@ df1 = df1.apply(plus,axis=1,args=(2,3,))
 df1 = DataFrame({'name':['ZhangFei', 'GuanYu', 'a', 'b', 'c'], 'data1':range(5)})
 print df1.describe()
 ```
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321764_20200901222429938_1561259650.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321764_20200901222429938_1561259650.png)
 
 # 数据表合并
 有时候我们需要将多个渠道源的多个数据表进行合并，一个 DataFrame 相当于一个数据库的数据表，那么多个 DataFrame 数据表的合并就相当于多个数据库的表合并。
@@ -190,35 +190,35 @@ df2 = DataFrame({'name':['ZhangFei', 'GuanYu', 'A', 'B', 'C'], 'data2':range(5)}
 ```python
 df3 = pd.merge(df1, df2, on='name')
 ```
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321764_20200901222655097_1920940979.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321764_20200901222655097_1920940979.png)
 
 2. inner 内连接
 inner 内链接是 merge 合并的默认情况，inner 内连接其实也就是键的交集，在这里 df1, df2 相同的键是 name，所以是基于 name 字段做的连接：
 ```python
 df3 = pd.merge(df1, df2, how='inner')
 ```
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321765_20200901222736585_1693087143.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321765_20200901222736585_1693087143.png)
 
 3. left 左连接
 左连接是以第一个 DataFrame 为主进行的连接，第二个 DataFrame 作为补充。
 ```python
 df3 = pd.merge(df1, df2, how='left')
 ```
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321765_20200901222827541_224325874.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321765_20200901222827541_224325874.png)
 
 4. right 右连接
 右连接是以第二个 DataFrame 为主进行的连接，第一个 DataFrame 作为补充。
 ```python
 df3 = pd.merge(df1, df2, how='right')
 ```
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321765_20200901222910064_821715680.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321765_20200901222910064_821715680.png)
 
 5. outer 外连接
 外连接相当于求两个 DataFrame 的并集。
 ```python
 df3 = pd.merge(df1, df2, how='outer')
 ```
-![](https://gitee.com/caijingquan/imagebed/raw/master/1602321766_20200901222954128_1014629190.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1602321766_20200901222954128_1014629190.png)
 
 # 如何用 SQL 方式打开 Pandas
 Pandas 的 DataFrame 数据类型可以让我们像处理数据表一样进行操作，比如数据表的增删改查，都可以用 Pandas 工具来完成。不过也会有很多人记不住这些 Pandas 的命令，相比之下还是用 SQL 语句更熟练，用 SQL 对数据表进行操作是最方便的，它的语句描述形式更接近我们的自然语言。事实上，在 Python 里可以直接使用 SQL 语句来操作 Pandas。这里给你介绍个工具：pandasql。
@@ -368,7 +368,7 @@ pivot()方法其实比较容易理解，就是指定相应的列分别作为行�
 
 ---
 
-![](https://gitee.com/caijingquan/imagebed/raw/master/1610692770_20201015142026466_11271.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1610692770_20201015142026466_11271.png)
 
 # stack 堆叠
 
@@ -445,6 +445,6 @@ array([[2000, 'Ohio', 1.5, 0],
 
 # DataFrame轴
 在DataFrame的处理中经常会遇到轴的概念，这里先给大家一个直观的印象，我们所说的axis=0即表示沿着每一列或行标签\索引值向下执行方法，axis=1即表示沿着每一行或者列标签模向执行对应的方法。
-![](https://gitee.com/caijingquan/imagebed/raw/master/1610692771_20201015145623123_491.png)
+![](https://raw.githubusercontent.com/1990frog/imagebed/default/1610692771_20201015145623123_491.png)
 
 # DataFrame一些性质
