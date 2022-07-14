@@ -1,4 +1,12 @@
-[TOC]
+<!-- TOC -->
+
+- [逻辑上](#%E9%80%BB%E8%BE%91%E4%B8%8A)
+- [物理上](#%E7%89%A9%E7%90%86%E4%B8%8A)
+- [索引结构](#%E7%B4%A2%E5%BC%95%E7%BB%93%E6%9E%84)
+    - [B-tree](#b-tree)
+    - [Bitmap](#bitmap)
+
+<!-- /TOC -->
 
 # 逻辑上
 + Single column 单行索引
