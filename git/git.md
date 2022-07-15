@@ -1,14 +1,27 @@
-[TOC]
 
+<!-- TOC -->
+
+- [仓库配置](#%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE)
+    - [配置](#%E9%85%8D%E7%BD%AE)
+        - [显示当前的git配置](#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%9A%84git%E9%85%8D%E7%BD%AE)
+        - [编辑git配置文件[全局]](#%E7%BC%96%E8%BE%91git%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%85%A8%E5%B1%80)
+        - [设置提交用户信息](#%E8%AE%BE%E7%BD%AE%E6%8F%90%E4%BA%A4%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF)
+        - [添加远程仓库地址](#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80)
+        - [修改远程仓库地址](#%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80)
+- [查看状态](#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81)
+    - [查看工作目录和暂存区的状态](#%E6%9F%A5%E7%9C%8B%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA%E7%9A%84%E7%8A%B6%E6%80%81)
+    - [查看本地代码变化状态（add操作之前）](#%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%8F%98%E5%8C%96%E7%8A%B6%E6%80%81add%E6%93%8D%E4%BD%9C%E4%B9%8B%E5%89%8D)
+- [配置](#%E9%85%8D%E7%BD%AE)
+    - [显示当前的git配置](#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%9A%84git%E9%85%8D%E7%BD%AE)
+    - [编辑git配置文件](#%E7%BC%96%E8%BE%91git%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+    - [设置提交用户信息](#%E8%AE%BE%E7%BD%AE%E6%8F%90%E4%BA%A4%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF)
+- [删除](#%E5%88%A0%E9%99%A4)
+    - [删除工作区文件，并且将这次删除放入暂存区](#%E5%88%A0%E9%99%A4%E5%B7%A5%E4%BD%9C%E5%8C%BA%E6%96%87%E4%BB%B6%E5%B9%B6%E4%B8%94%E5%B0%86%E8%BF%99%E6%AC%A1%E5%88%A0%E9%99%A4%E6%94%BE%E5%85%A5%E6%9A%82%E5%AD%98%E5%8C%BA)
+    - [停止追踪指定文件，单该文件会保留在工作区](#%E5%81%9C%E6%AD%A2%E8%BF%BD%E8%B8%AA%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%8D%95%E8%AF%A5%E6%96%87%E4%BB%B6%E4%BC%9A%E4%BF%9D%E7%95%99%E5%9C%A8%E5%B7%A5%E4%BD%9C%E5%8C%BA)
+- [修改文件名](#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D)
+
+<!-- /TOC -->
 # 仓库配置
-## 新建仓库
-### 本地初始化一个仓库
-git init
-### 从远程克隆到本地
-git clone 仓库地址 名称
--b  克隆指定分支
---no-tags   不克隆任何tag
--o<名称>    自定义仓库名称
 ## 配置
 ### 显示当前的git配置
 git config --list
@@ -37,20 +50,6 @@ git status
 
 
 
-# git安装
-# git结构
-1 工作区（Working Directory）
-2 版本库（repository）
-2.1 暂存区（stage/index）
-2.2 master
-
-# 初始化
-初始化git仓库,创建.git文件夹
-## 在当前目录新建一个git代码块
-git init 
-## 新建一个目录，将其初始化为git代码库
-git init [project-name]
-
 # 配置
 ## 显示当前的git配置
 git config --list
@@ -60,15 +59,6 @@ git config -e [--global]
 git config [--global] user.name "[name]"
 git config [--global] user.email "[email address]"
 
-# 增加（暂存区）
-## 添加指定文件到暂存区
-git add [file1] [file2] ...
-## 将工作空间下所有文件添加暂存区（new、modifyed）
-git add .
-## 将工作空间下所有文件添加到暂存区（new、modifyed、delete）
-git add -A
-## 将工作空间下所有文件添加到暂存区（modifyed、delete）
-git add -u
 
 # 删除
 ## 删除工作区文件，并且将这次删除放入暂存区
@@ -78,24 +68,3 @@ git rm --cache [file]
 
 # 修改文件名
 git mv [file-original] [file-renamed]
-
-# 提交
-## 提交暂存区到仓库区
-git commit -m [message]
-## 提交暂存区的指定文件到仓库区
-git commit [file1] [file2] ... -m [message]
-## 提交工作区自上次commit之后的变化，直接到仓库区
-git commit -a
-## 提交时显示所有diff信息
-git commit -v
-## 使用一次新的commit，替代上一次提交，如果代码没有任何新变化，则用来改写上一次commit的提交信息
-git commit -amend -m [message]
-## 重做上一次commit，并包括指定文件的新变化
-git commit -amend [file1] [file2] ...
-
-
-
-
-## git commit
-+ git commit -m <commit message> 将暂存区的文件提交到版本库
-+ git commit -am <commit message> 跳过git add 命令，直接将工作区所有已跟踪的文件提交到版本库，未跟踪的（untracked）文件不能使用该命令
