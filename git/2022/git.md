@@ -2,6 +2,7 @@
 
 - [快速检索表](#%E5%BF%AB%E9%80%9F%E6%A3%80%E7%B4%A2%E8%A1%A8)
 - [Git本质](#git%E6%9C%AC%E8%B4%A8)
+- [git 文件结构](#git-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84)
 - [仓库](#%E4%BB%93%E5%BA%93)
     - [创建新仓库](#%E5%88%9B%E5%BB%BA%E6%96%B0%E4%BB%93%E5%BA%93)
     - [检出仓库](#%E6%A3%80%E5%87%BA%E4%BB%93%E5%BA%93)
@@ -52,6 +53,22 @@ origin  远程仓库
 
 # Git本质
 一套内容寻址的文件系统
+
+# .git 文件结构
+|   仓库子目录    |            功能描述             |
+|------------|-----------------------------|
+|  branches  |           项目分支信息            |
+|   hooks    |     默认的hooks脚本，由特定事件触发      |
+|    info    |   内有exclude文件：指定gt要忽略的文件    |
+|    logs    |      历史记录，删除的commit对象等      |
+|  objects   |Git数据对象：commit，tree，blob，tag |
+|    refs    |    Git引用：指向（远程）分支、标签的指针     |
+|   config   |          Git项目配置信息          |
+|    HEAD    |          指向当前分支的末端          |
+|   index    |       Staging area暂存区       |
+|COMMIT-ETMSG|          最后一次提交的注释          |
+|description |           Git描述信息           |
+
 
 # 仓库
 ## 创建新仓库
