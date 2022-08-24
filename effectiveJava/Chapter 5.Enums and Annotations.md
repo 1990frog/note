@@ -2,7 +2,7 @@
 
 - [用 enum 代替 int 常量](#%E7%94%A8-enum-%E4%BB%A3%E6%9B%BF-int-%E5%B8%B8%E9%87%8F)
     - [枚举特定行为](#%E6%9E%9A%E4%B8%BE%E7%89%B9%E5%AE%9A%E8%A1%8C%E4%B8%BA)
-- [用实例域代替序号](#%E7%94%A8%E5%AE%9E%E4%BE%8B%E5%9F%9F%E4%BB%A3%E6%9B%BF%E5%BA%8F%E5%8F%B7)
+- [用实例域代替序数](#%E7%94%A8%E5%AE%9E%E4%BE%8B%E5%9F%9F%E4%BB%A3%E6%9B%BF%E5%BA%8F%E6%95%B0)
 - [用 EnumSet 代替位域](#%E7%94%A8-enumset-%E4%BB%A3%E6%9B%BF%E4%BD%8D%E5%9F%9F)
 - [用 EnumMap 代替序数索引](#%E7%94%A8-enummap-%E4%BB%A3%E6%9B%BF%E5%BA%8F%E6%95%B0%E7%B4%A2%E5%BC%95)
 - [用接口模拟可扩展的枚举](#%E7%94%A8%E6%8E%A5%E5%8F%A3%E6%A8%A1%E6%8B%9F%E5%8F%AF%E6%89%A9%E5%B1%95%E7%9A%84%E6%9E%9A%E4%B8%BE)
@@ -32,6 +32,7 @@ public enum APPLE {FUJI,PIPPIN,GRANNY_SMITH}
 5. 为了将数据域枚举常量关联起来，得声明实例域，并编写一个带有数据并将数据保存在域中的构造器。枚举天生就是不可变的，因此所有的域都应该为 final 的。它们可以是公有的，但最好将它们做成私有的，并提供公有的访问方法。
 6. 枚举有一个静态的 values 方法，按照声明顺序返回它的值数组。
 7. 如果一个枚举具有普遍实用性，它就应该成为一个顶层类（top-level class）；如果它只是被用在一个特定的顶层类中，它就应该成为该顶层类的一个成员类。
+8. 枚举类型有一个自动产生的valueOf(String)方法，它将常量的名字转换成常量本身。
 
 ## 枚举特定行为
 在枚举类型中声明一个抽象方法，并在特定于常量的类主体（constant-specific class body）中，用具体的方法覆盖每个常量的抽象方法。这种方法被称作特定于常量的方法实现（constant-specific method implementation）。枚举类型中的抽象方法必须被它的所有常量中的具体方法所覆盖。
@@ -41,7 +42,8 @@ public enum APPLE {FUJI,PIPPIN,GRANNY_SMITH}
 
 它存在着许多不足。int枚举模式不具有类型安全性，也几乎没有描述性可言。例如将 apple 传入到想要 orange 的方法中，编译器也不会发出警告。
 
-# 用实例域代替序号
+# 用实例域代替序数
+
 
 # 用 EnumSet 代替位域
 
