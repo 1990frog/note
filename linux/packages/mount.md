@@ -1,4 +1,9 @@
-[TOC]
+<!-- TOC -->
+
+- [挂载windows ntfs](#挂载windows-ntfs)
+- [挂载U盘](#挂载u盘)
+
+<!-- /TOC -->
 
 # 挂载windows ntfs
 ```

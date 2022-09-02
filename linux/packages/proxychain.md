@@ -1,4 +1,4 @@
-[TOC]
+
 
 # 配置
 配置文件：/etc/proxychains.conf

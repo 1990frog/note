@@ -1,4 +1,14 @@
+<!-- TOC -->
 
+- [wiki](#wiki)
+- [安装xorg](#安装xorg)
+- [查看显卡类型](#查看显卡类型)
+- [安装驱动](#安装驱动)
+- [初始化配置文件](#初始化配置文件)
+- [画面撕裂](#画面撕裂)
+- [dpi](#dpi)
+
+<!-- /TOC -->
 
 # wiki
 [wiki](https://wiki.archlinux.org/title/Xorg_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))

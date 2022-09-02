@@ -1,10 +1,29 @@
-[TOC]
+<!-- TOC -->
+
+- [必备](#必备)
+- [下载](#下载)
+- [安装](#安装)
+  - [解压](#解压)
+  - [打补丁](#打补丁)
+  - [移除补丁](#移除补丁)
+- [补丁](#补丁)
+  - [dwm](#dwm)
+- [st](#st)
+- [slock](#slock)
+- [emoji](#emoji)
+- [java支持](#java支持)
+- [.xinitrc 文件](#xinitrc-文件)
+- [sddm 登录管理器](#sddm-登录管理器)
+- [dmenu更换rofi](#dmenu更换rofi)
+- [key](#key)
+- [退出](#退出)
+
+<!-- /TOC -->
 
 # 必备
 + compton，picom（透明）
 + feh（背景）
 + slock（锁屏）
-+ dmenu（快速启动）
 + xbacklight（调节亮度）
 + acpilight（intel集显调整亮度）
 + adobe-source-code-pro-fonts（字体Source Code Pro）
