@@ -8,6 +8,8 @@
 + pulseaudio
 + pulseaudio-alsa
 
+sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
+
 pulseaudio-alsa，pulseaudio 间接解决声卡独占
 
 # alsamixer

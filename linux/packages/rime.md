@@ -23,21 +23,22 @@
 [官方模糊音](https://gist.github.com/lotem/2320943)
 [FCITX5](https://wiki.archlinux.org/title/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#IntelliJ_%E7%B3%BB%E5%88%97%E8%BD%AF%E4%BB%B6%E7%9A%84_IDE_%E4%B8%AD%E8%BE%93%E5%85%A5%E6%A1%86%E4%BD%8D%E7%BD%AE%E4%B8%8D%E6%AD%A3%E7%A1%AE)
 
+
+https://github.com/fkxxyz/rime-cloverpinyin/wiki/linux#%E5%9F%BA%E4%BA%8Efcitx5
+
 # 安装（fcitx5、rime、clover）
-```
-> sudo pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-rime rime-cloverpinyin
-```
+fcitx5
+> sudo pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool
+
+rime
+> sudo pacman -S fcitx5-rime
+
+clover
+> sudo pacman -S rime-cloverpinyin
 
 # 配置
 ## linux 环境
 ```
-> vim ~/.pam_environment
-GTK_IM_MODULE DEFAULT=fcitx
-QT_IM_MODULE  DEFAULT=fcitx
-XMODIFIERS    DEFAULT=@im=fcitx
-INPUT_METHOD  DEFAULT=fcitx
-SDL_IM_MODULE DEFAULT=fcitx
-
 > vim ~/.xprofile
 export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
@@ -48,7 +49,7 @@ export LC_CTYPE="zh_CN.UTF-8"
 
 ## 开机启动
 ```
-> /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
+> sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
 ```
 
 ## 词库、配置文件目录
