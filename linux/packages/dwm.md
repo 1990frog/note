@@ -25,9 +25,7 @@
 + feh（背景）
 + slock（锁屏）
 + xbacklight（调节亮度）
-+ acpilight（intel集显调整亮度）
 + adobe-source-code-pro-fonts（字体Source Code Pro）
-+ nerd-fonts-complete（字体Sauce Code Pro Nerd Font Mono）
 
 # 下载
 压缩包
@@ -101,6 +99,8 @@ wmname LG3D
 picom &
 fcitx5 &
 feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/wallhaven-w8yy6p.png &
+
+sh /home/cai/Code/system/scripts/status-refresh.sh &
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 wmname LG3D

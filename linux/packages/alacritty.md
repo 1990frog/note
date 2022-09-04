@@ -25,11 +25,6 @@ alacritty不会自动创建配置文件，可自行创建：
 [default](https://github.com/alacritty/alacritty/blob/master/alacritty.yml)
 [install](https://github.com/alacritty/alacritty/blob/master/INSTALL.md#linux--windows)
 
-
-
-
-
-
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
