@@ -1,14 +1,31 @@
-[TOC]
+<!-- TOC -->
+
+- [必备](#必备)
+- [下载](#下载)
+- [安装](#安装)
+  - [解压](#解压)
+  - [打补丁](#打补丁)
+  - [移除补丁](#移除补丁)
+- [补丁](#补丁)
+  - [dwm](#dwm)
+- [st](#st)
+- [slock](#slock)
+- [emoji](#emoji)
+- [java支持](#java支持)
+- [.xinitrc 文件](#xinitrc-文件)
+- [sddm 登录管理器](#sddm-登录管理器)
+- [dmenu更换rofi](#dmenu更换rofi)
+- [key](#key)
+- [退出](#退出)
+
+<!-- /TOC -->
 
 # 必备
 + compton，picom（透明）
 + feh（背景）
 + slock（锁屏）
-+ dmenu（快速启动）
 + xbacklight（调节亮度）
-+ acpilight（intel集显调整亮度）
 + adobe-source-code-pro-fonts（字体Source Code Pro）
-+ nerd-fonts-complete（字体Sauce Code Pro Nerd Font Mono）
 
 # 下载
 压缩包
@@ -82,6 +99,8 @@ wmname LG3D
 picom &
 fcitx5 &
 feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/wallhaven-w8yy6p.png &
+
+sh /home/cai/Code/system/scripts/status-refresh.sh &
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 wmname LG3D

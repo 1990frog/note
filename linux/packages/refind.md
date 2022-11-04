@@ -1,4 +1,11 @@
-[TOC]
+<!-- TOC -->
+
+- [安装](#%E5%AE%89%E8%A3%85)
+- [初始化](#%E5%88%9D%E5%A7%8B%E5%8C%96)
+- [引导内核](#%E5%BC%95%E5%AF%BC%E5%86%85%E6%A0%B8)
+- [配置文件](#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+
+<!-- /TOC -->
 
 # 安装
 ```
@@ -11,7 +18,6 @@
 ```
 
 # 引导内核
-引导的是linux内核，可能无法显示正确的图标，可以修改icons/os_linux.png
 ```
 > vim refind_linux.conf
 "Boot with standard options"  "ro root=UUID=084f544a-7559-4d4b-938a-b920f59edc7e splash=silent quiet showopts "

@@ -1,8 +1,9 @@
 <!-- TOC -->
 
-- [pacman命令](#pacman%E5%91%BD%E4%BB%A4)
+- [pacman命令](#pacman命令)
+- [yay](#yay)
 
-<!-- /TOC -->[[TOC]]
+<!-- /TOC -->
 
 # pacman命令
 | desc                   | command                            |
@@ -18,3 +19,21 @@
 | 本地安装包             | pacman -Qi                         |
 | 清理包缓存             | pacman -Sc                         |
 | 安装本地包             | pacman -U /path/package.pkg.tar.gz |
+
+# yay
+配置  archlinuxCN 仓库
+```
+> sudo vim /etc/pacman.conf
+//在最后添加
+[archlinuxcn]
+Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
+//顺便找到这一行，取消注释
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+
+安装
+> sudo pacman -S yay
+
+更新GPD密钥
+> sudo pacman -Sy archlinuxcn-keyring

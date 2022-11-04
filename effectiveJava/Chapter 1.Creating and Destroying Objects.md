@@ -9,7 +9,7 @@
 - [避免创建不必要的对象](#%E9%81%BF%E5%85%8D%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%AF%B9%E8%B1%A1)
 - [消除过期的对象引用](#%E6%B6%88%E9%99%A4%E8%BF%87%E6%9C%9F%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8)
 - [避免使用终结方法和清除方法](#%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E7%BB%88%E7%BB%93%E6%96%B9%E6%B3%95%E5%92%8C%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95)
-- [try-with-resources优先于try-](#try-with-resources%E4%BC%98%E5%85%88%E4%BA%8Etry-)
+- [try-with-resources优先于try-finally](#try-with-resources%E4%BC%98%E5%85%88%E4%BA%8Etry-finally)
 
 <!-- /TOC -->
 # 用静态工厂方法代替构造器
@@ -22,6 +22,10 @@
 
 
 # 遇到多个构造器参数时要考虑使用构建器
+使用重叠构造器，当有许多参数的时候，客户端代码会很难编写，并且难以阅读
+使用javabean模式，无法保证类的不可变性
+Builder模式，可以保证类似重叠构造器那样的安全性，也能保证javabean类似的可读性
+Builder模式模拟了具名的可选参数
 
 # 用私有构造器或者枚举类型强化Singleton属性
 

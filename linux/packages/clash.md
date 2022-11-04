@@ -1,4 +1,14 @@
-[TOC]
+<!-- TOC -->
+
+- [安装](#安装)
+- [规则](#规则)
+- [mode](#mode)
+- [fake-ip](#fake-ip)
+- [script](#script)
+- [config](#config)
+- [systemd服务](#systemd服务)
+
+<!-- /TOC -->
 
 # 安装
 linux（archlinuxcn/clash-premium-bin）

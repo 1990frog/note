@@ -8,9 +8,33 @@
 + pulseaudio
 + pulseaudio-alsa
 
+sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
+
 pulseaudio-alsa，pulseaudio 间接解决声卡独占
 
 # alsamixer
 
 
 https://www.freesion.com/article/89381273088/
+
+
+---
+
+Master 主声卡
+
+--
+
+# 配置
+vim .asoundrc
+```
+pcm.!default {
+    type hw
+    card 2
+}
+
+ctl.!default {
+    type hw
+    card 2
+}
+```
+
