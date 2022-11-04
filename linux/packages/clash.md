@@ -764,7 +764,7 @@ Description=A rule based proxy in Go for %i.
 After=network.target
 
 [Service]
-Type=simple
+Type=sample
 User=%i
 Restart=on-abort
 ExecStart=/usr/bin/clash
