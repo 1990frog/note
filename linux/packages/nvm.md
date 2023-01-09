@@ -7,6 +7,7 @@
     - [use](#use)
     - [ls](#ls)
 - [安装yarn](#%E5%AE%89%E8%A3%85yarn)
+- [默认](#%E9%BB%98%E8%AE%A4)
 
 <!-- /TOC -->
 
@@ -26,7 +27,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # 命令
 ## 指定版本安装
-nvm i 14/15/16
+nvm i 14/15z/16
 
 ## use
 nvm use 15
@@ -39,3 +40,6 @@ nvm ls
 > npm i install --global yarn
 > sudo ln -s /home/cai/.nvm/versions/node/v15.14.0/bin/yarn /usr/bin/yarnjs
 ```
+
+# 默认
+nvm alias default 6.11.5
