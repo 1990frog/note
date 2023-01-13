@@ -1,14 +1,5 @@
-<!-- TOC -->
+[TOC]
 
-- [定义](#%E5%AE%9A%E4%B9%89)
-- [成员](#%E6%88%90%E5%91%98)
-- [简单工厂](#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82)
-- [工厂方法（Factory Method）](#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95factory-method)
-- [抽象工厂（Abstract Factory）](#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82abstract-factory)
-- [工厂模式和 DI 容器有何区别？](#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E5%92%8C-di-%E5%AE%B9%E5%99%A8%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB)
-    - [DI 容器的核心功能有哪些？](#di-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B)
-
-<!-- /TOC -->
 # 定义
 大部分工厂类都是以“Factory”这个单词结尾的，但也不是必须的，比如 Java 中的 DateFormat、Calender。除此之外，工厂类中创建对象的方法一般都是 create 开头，比如代码中的 createParser()，但有的也命名为 getInstance()、createInstance()、newInstance()，有的甚至命名为 valueOf()（比如 Java String 类的 valueOf() 函数）等等，这个我们根据具体的场景和习惯来命名就好。
 

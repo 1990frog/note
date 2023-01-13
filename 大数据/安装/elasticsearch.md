@@ -1,4 +1,4 @@
-[TCO]
+[TOC]
 
 # config/elasticsearch.yml
 ```yml
