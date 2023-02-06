@@ -1,26 +1,4 @@
-<!-- TOC -->
-
-- [wiki](#wiki)
-- [前期准备](#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87)
-- [磁盘](#%E7%A3%81%E7%9B%98)
-    - [分区](#%E5%88%86%E5%8C%BA)
-    - [挂载](#%E6%8C%82%E8%BD%BD)
-- [安装linux](#%E5%AE%89%E8%A3%85linux)
-    - [安装软件仓库源](#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E4%BB%93%E5%BA%93%E6%BA%90)
-    - [安装](#%E5%AE%89%E8%A3%85)
-- [挂载](#%E6%8C%82%E8%BD%BD)
-- [启动器](#%E5%90%AF%E5%8A%A8%E5%99%A8)
-- [Chroot](#chroot)
-- [设置时区](#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA)
-- [本地化](#%E6%9C%AC%E5%9C%B0%E5%8C%96)
-- [主机名](#%E4%B8%BB%E6%9C%BA%E5%90%8D)
-- [用户](#%E7%94%A8%E6%88%B7)
-- [驱动](#%E9%A9%B1%E5%8A%A8)
-    - [显示](#%E6%98%BE%E7%A4%BA)
-    - [声音](#%E5%A3%B0%E9%9F%B3)
-    - [网络](#%E7%BD%91%E7%BB%9C)
-
-<!-- /TOC -->
+[TOC]
 
 # wiki
 [General recommendations](https://wiki.archlinux.org/title/General_recommendations_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
@@ -36,6 +14,7 @@
 ## 分区
 [xdisk](../packages/xdisk.md)  
 分两个区：
+
 + root
 + home
 

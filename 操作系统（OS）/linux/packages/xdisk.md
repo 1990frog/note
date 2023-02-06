@@ -1,10 +1,4 @@
-<!-- TOC -->
-
-- [fdisk](#fdisk)
-- [cfdisk](#cfdisk)
-- [gdisk](#gdisk)
-
-<!-- /TOC -->
+[TOC]
 
 # fdisk
 > fdisk -l

@@ -1,14 +1,7 @@
-<!-- TOC -->
-
-- [安装音频与蓝牙依赖](#%E5%AE%89%E8%A3%85%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%93%9D%E7%89%99%E4%BE%9D%E8%B5%96)
-- [安装 libldac](#%E5%AE%89%E8%A3%85-libldac)
-- [安装 pulseaudio-modules-bt](#%E5%AE%89%E8%A3%85-pulseaudio-modules-bt)
-- [查看蓝牙设备连接方式](#%E6%9F%A5%E7%9C%8B%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F)
-- [使用 bluetoothctl 调试](#%E4%BD%BF%E7%94%A8-bluetoothctl-%E8%B0%83%E8%AF%95)
-
-<!-- /TOC -->
+[TOC]
 
 # 安装音频与蓝牙依赖
+
 sudo pacman -S pulseaudio-alsa bluez-utils
 
 # 安装 libldac
