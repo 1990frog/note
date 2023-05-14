@@ -1,6 +1,6 @@
 <!-- TOC -->
 
-- [pacman命令](#pacman%E5%91%BD%E4%BB%A4)
+- [pacman命令](#pacman命令)
 - [yay](#yay)
 
 <!-- /TOC -->
