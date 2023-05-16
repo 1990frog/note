@@ -61,7 +61,7 @@ begin
                     dbms_random.string('L', 6) || '@' || dbms_random.string('L', 4) || '.com',
                     floor(dbms_random.value(10000001, 999999999)),
                     dbms_random.string('L', 16),
-                    sysdate,
+                    (select to_date((select to_char(sysdate,'J') from dual) + trunc(DBMS_RANDOM.VALUE(0, 10)), 'J') from dual),
                     'HID0101',
                     0);
         end loop;
@@ -131,7 +131,7 @@ begin
                     dbms_random.string('L', 6) || '@' || dbms_random.string('L', 4) || '.com',
                     floor(dbms_random.value(10000001, 999999999)),
                     dbms_random.string('L', 16),
-                    sysdate,
+                    (select to_date((select to_char(sysdate,'J') from dual) + trunc(DBMS_RANDOM.VALUE(0, 10)), 'J') from dual),
                     'HID0101',
                     0);
         end loop;
@@ -200,7 +200,7 @@ begin
                     dbms_random.string('L', 6) || '@' || dbms_random.string('L', 4) || '.com',
                     floor(dbms_random.value(10000001, 999999999)),
                     dbms_random.string('L', 16),
-                    sysdate,
+                    (select to_date((select to_char(sysdate,'J') from dual) + trunc(DBMS_RANDOM.VALUE(0, 10)), 'J') from dual),
                     'HID0101',
                     0);
         end loop;
