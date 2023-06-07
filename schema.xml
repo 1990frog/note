@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="default-config" version="1.6">
+    <field name="ID" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="SEX_CODE" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="SEX_NAME" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="NAME" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="ID_CARD" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="HOUSE_PHONE" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="MOBILE" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="FAX" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="POST_CODE" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="EMAIL" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="QQ" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="ADDR" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="BIZDATE" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="HOSPITALCODE" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="IS_DELETE" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="BIZDATE1" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+</schema>
+
+
