@@ -1,11 +1,10 @@
-FROM debian:bullseye
+ROM debian:bullseye
 
 ENV TZ=Asia/Shanghai \
-    ORACLE_HOME=/opt/oracle \
-    LD_LIBRARY_PATH=/opt/oracle/lib:$LD_LIBRARY_PATH \
+    LD_LIBRARY_PATH=/opt/oracle/instantclient_21_10:$LD_LIBRARY_PATH \
     JAVA_HOME=/app/openjdk8u342 \
     JRE_HOME=$JAVA_HOME/jre \
-    TNS_ADMIN=/opt/oracle/lib/network/admin \
+    TNS_ADMIN=/opt/oracle/instantclient_21_10/network/admin \
     NLS_LANGE="SIMPLIFIED CHINESE_CHINA.ZHS16GBK" \
     PYTHONPATH="${PYTONPATH}:/app/script"
 
@@ -15,20 +14,48 @@ EXPOSE 5000 5001 5004 7077 7078 7079 37077 2345 23306
 
 # 基础包安装
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
-    && apt update
+    && apt update \
     && apt -y install \
         software-properties-common \
         build-essential checkinstall \
-        zlib1g zlib1g-dev libbz2-dev libffi-dev openssl\
+        zlib1g zlib1g-dev libbz2-dev libffi-dev openssl \
         libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev \
         make gcc libtool \
         neovim telnet net-tools htop iftop \
-        libpq5 libsqlite3-dev wget
+        libpq5 libsqlite3-dev wget unzip libaio*
+
+COPY soft/Python-3.11.4.tar.xz /app/
+COPY soft/wheel/* /app/wheel/
+
+RUN mkdir -p /opt/oracle \
+        && cd /opt/oracle \
+        && wget https://download.oracle.com/otn_software/linux/instantclient/instantclient-basic-linuxx64.zip \
+        && unzip instantclient-basic-linuxx64.zip
 
 # 安装python3.11.4
 RUN tar -xvf Python-3.11.4.tar.xz \
         && cd Python-3.11.4 \
         && ./configure prefix=/usr/local/python3 && make && make install \
         && ln -f /usr/local/python3/bin/python3.11 /usr/bin/python3 \
-        && ln -f /usr/local/python3/bin/pip3 /usr/bin/pip3 \
-        && cd /app
+        && ln -f /usr/local/python3/bin/pip3 /usr/bin/pip3
+
+RUN python3 -m pip install --upgrade pip --no-warn-script-location -i http://pypi.douban.com/simple --trusted-host pypi.douba
+n.com && pip3 install --user --no-warn-script-location /app/wheel/*.whl
+RUN pip3 install easyaccess 
+
+# java 配置
+COPY soft/openjdk8u342.tar.gz /app
+RUN tar -zxvf openjdk8u342.tar.gz \
+        && ln -s /app/openjdk8u342/bin/java /usr/bin/java \
+        && ln -s /app/openjdk8u342/bin/jps /usr/bin/jps \
+        && ln -s /app/openjdk8u342/bin/javap /usr/bin/javap \
+        && ln -s /app/openjdk8u342/bin/jstack /usr/bin/jstack \
+        && ln -s /app/openjdk8u342/bin/jstat /usr/bin/jstat
+
+# 清理安装包
+RUN rm -rf /app/openjdk8u342.tar.gz /app/wheel /app/Python-3.11.4.tar /app/Python-3.11.4
+
+RUN chmod +x /app/entrypoint.d/start_all.sh \
+    && chmod +x /app/jar/*.jar
+
+ENTRYPOINT ["sh","-c","/app/entrypoint.d/start_all.sh"]
