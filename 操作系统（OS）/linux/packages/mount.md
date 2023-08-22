@@ -1,7 +1,7 @@
 <!-- TOC -->
 
-- [挂载windows ntfs](#挂载windows-ntfs)
-- [挂载U盘](#挂载u盘)
+- [挂载windows ntfs](#%E6%8C%82%E8%BD%BDwindows-ntfs)
+- [挂载U盘](#%E6%8C%82%E8%BD%BDu%E7%9B%98)
 
 <!-- /TOC -->
 
