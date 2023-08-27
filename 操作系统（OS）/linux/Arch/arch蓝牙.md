@@ -59,3 +59,7 @@ bluetoothctl
 [bluetooth]# pair 00:1D:43:6D:03:26
 [bluetooth]# connect 00:1D:43:6D:03:26
 
+
+---
+
+yay -S bluez bluez-utils blueman

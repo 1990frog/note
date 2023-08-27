@@ -10,29 +10,31 @@
 + [下载](https://archlinux.org/download/)
 + rufus dd模式烧盘
 
-# 磁盘
-## 分区
+# archinstall
+# 常规安装
+## 磁盘
+### 分区
 [xdisk](../packages/xdisk.md)  
 分两个区：
 
 + root
 + home
 
-## 挂载
+### 挂载
 ```
-> mount /dev/nvme0n1p2 /mnt
 > mkdir /mnt/boot
 > mount /dev/nvme0n1p1 /mnt/boot
+> mount /dev/nvme0n1p2 /mnt
 ```
 
-# 安装linux
-## 安装软件仓库源
+## 安装linux
+### 安装软件仓库源
 [reflector](../packages/reflector.md)
 [pacman](../packages/pacman.md)
 
-## 安装
+### 安装
 ```
-> pacstrap /mnt linux linux-firmware base base-devel neovim dhcpcd iwd amd-ucode
+> pacstrap /mnt linux-zen linux-zen-header linux-firmware base base-devel neovim dhcpcd iwd amd-ucode
 ```
 + linux 内核
 + linux-firmware 硬件驱动
@@ -47,7 +49,7 @@
 [dhcpcd](../packages/dhcpcd.md)
 [iwd](../packages/iwd.md)
 
-# 挂载
+## 挂载
 uuid模式：`-U`，默认目录模式
 ```
 > genfstab -U /mnt >> /mnt/etc/fstab
@@ -102,3 +104,43 @@ Locale数据，用于控制操作系统的本地化，以支持不同的语音�
 ## 声音
 
 ## 网络
+
+
+
+-----
+
+双系统系统时间同步
+输入以下指令，使 linux 不修改 bios 时间
+
+timedatectl set-local-rtc 1 --adjust-sy
+
+
+
+# 编辑环境变量
+http_proxy=http://127.0.0.1:7890/
+https_proxy=http://127.0.0.1:7890/
+ftp_proxy=http://127.0.0.1:7890/
+HTTP_PROXY=http://127.0.0.1:7890/
+HTTPS_PROXY=http://127.0.0.1:7890/
+FTP_PROXY=http://127.0.0.1:7890/
+
+
+# 安装蓝牙
+安装蓝牙模块。
+
+sudo pacman -S bluez
+设置开机启动。
+
+systemctl enable bluetooth
+systemctl start blutooth
+安装蓝牙音频。
+
+sudo pacman -S pluseaudio-bluetooth
+
+修改 system.pa。
+
+sudo vim /etc/pulse/system.pa
+写入以下内容。
+
+load-module module-bluetooth-policy
+load-module module-bluetooth-discover

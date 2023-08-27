@@ -1,5 +1,7 @@
 [TOC]
 
+[wiki](https://sw.kovidgoyal.net/kitty/)
+
 # 安装kitty
 ```
 > sudo pacman -S kitty
@@ -23,3 +25,9 @@ bold_font        auto
 italic_font      auto
 bold_italic_font auto 
 ```
+
+# plgins
+
+themes
+
+> kitty +kitten themes

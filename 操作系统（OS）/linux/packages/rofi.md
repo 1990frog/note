@@ -12,3 +12,6 @@
 ```
 > rofi -combi-modi window,drun,ssh -theme solarized -font "hack 15" -show combi -icon-theme "Papirus" -show-icons
 ```
+
+
+yay -S papirus-icon-theme
