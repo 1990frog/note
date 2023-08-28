@@ -5,10 +5,34 @@
 [引导](https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 [多媒体](https://wiki.archlinux.org/title/Category:Multimedia_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 [核心工具](https://wiki.archlinux.org/title/Core_utilities_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+[archinstall](https://wiki.archlinuxcn.org/wiki/Archinstall)
 
-# 前期准备
+# 烧盘
 + [下载](https://archlinux.org/download/)
 + rufus dd模式烧盘
+
+
+# 安装
+
+## archinstall
+简单是简单，但是不能设置refind引导
+
+## 传统安装
+### 分盘
+[cfdisk](../packages/cfdisk.md)
+[gdisk](../packages/gdisk.md)
+
+格式化
+```shell
+# EFI分区格式要求FAT32  
+> mkfs.fat -F 32 /dev/nvme0n1p1  
+# 设置主分区格式EXT4  
+> mkfs.ext4 /dev/nvme0n1p2
+```
+
+### 
+
+
 
 # archinstall
 # 常规安装
