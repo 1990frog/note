@@ -121,14 +121,21 @@ Locale数据，用于控制操作系统的本地化，以支持不同的语音�
 
 # 驱动
 ## 显示
+### dwm 方案
 [xorg](../packages/xorg.md)
 [dwm](../packages/dwm.md)
+
+### kde 方案
 [kde](../packages/kde.md)
 
+### hyprland 方案
+[hypr](../packages/hyprland.md)
+
 ## 声音
+[](../packages/)
 
 ## 网络
-
+[iwd](../packages/iwd.md)
 
 
 -----

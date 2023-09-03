@@ -23,6 +23,10 @@
 + sudo pacman -S noto-fonts-cjk
 + sudo pacman -S ttf-adobe-source-code-pro-fonts
 
+图标字体
++ ttf-font-awesome-pro 
++ ttf-font-awesome
+
 ## 中文
 [霞鹜文楷](https://github.com/lxgw/LxgwWenKai)
 + sudo pacman -S ttf-lxgw-wenkai
