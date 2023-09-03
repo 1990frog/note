@@ -132,10 +132,12 @@ Locale数据，用于控制操作系统的本地化，以支持不同的语音�
 [hypr](../packages/hyprland.md)
 
 ## 声音
-[](../packages/)
+[pipewire](../packages/pipewire.md)
+[alsa](../packages/alsa.md)
 
 ## 网络
 [iwd](../packages/iwd.md)
+[dhcpcd](../packages/dhcpcd.md)
 
 
 -----
