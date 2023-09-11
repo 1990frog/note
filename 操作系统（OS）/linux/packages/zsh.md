@@ -1,12 +1,4 @@
-<!-- TOC -->
-
-- [安装zsh](#安装zsh)
-- [安装oh-my-zsh](#安装oh-my-zsh)
-- [插件](#插件)
-  - [git](#git)
-  - [git-open](#git-open)
-
-<!-- /TOC -->
+[TOC]
 
 # 安装zsh
 ```

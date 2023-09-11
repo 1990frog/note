@@ -19,7 +19,7 @@
 # 环境变量
 ```
 # vim .zshrc
-# source .zshrc
+# source .zshrcc
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -27,7 +27,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # 命令
 ## 指定版本安装
-nvm i 14/15z/16
+nvm i 14/15/16
 
 ## use
 nvm use 15
