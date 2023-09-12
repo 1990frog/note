@@ -45,17 +45,16 @@
 ```
 
 # 字体收藏
-## FiraCode 编程、连字
-[FiraCode](https://github.com/tonsky/FiraCode)
-+ sudo pacman -S nerd-fonts-fira-code
-+ sudo pacman -S ttf-fira-code
-
 ## Noto Goole字体，noto没有豆腐方块
 谷歌开源字体Noto，包括中日韩字体、英文字体以及Emoji字体
 + sudo pacman -S noto-fonts: 大部分文字的常见样式，不包含汉字
 + sudo pacman -S noto-fonts-cjk: 汉字部分
 + sudo pacman -S noto-fonts-emoji: 彩色的表情符号字体
 + sudo pacman -S noto-fonts-extra: 提供额外的字重和宽度变种
+
+## FiraCode 编程、连字
+[FiraCode](https://github.com/tonsky/FiraCode)
++ sudo pacman -S ttf-fira-code
 
 ## awesome 图标字体
 [fontawesome](https://fontawesome.com.cn/)

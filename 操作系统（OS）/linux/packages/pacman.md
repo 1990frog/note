@@ -37,3 +37,6 @@ Include = /etc/pacman.d/mirrorlist
 
 更新GPD密钥
 > sudo pacman -Sy archlinuxcn-keyring
+
+#
+强烈建议开启 pacman 的颜色和多线程下载功能，编辑 /etc/pacman.conf 文件，将对应位置前 # 删除即可
