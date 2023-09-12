@@ -111,7 +111,7 @@ patch:
 # 萌娘百科词库
 > sudo pacman -S fcitx5-pinyin-moegirl-rime
 # 维基百科词库
-> sudo pacman -S fcitx5-pinyin-zhwiki-rime
+>   
 ```
 
 ## 转换工具
