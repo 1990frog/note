@@ -1,4 +1,4 @@
-
+不支持 ping，请使用crul
 
 # 配置
 配置文件：/etc/proxychains.conf
