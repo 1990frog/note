@@ -1,22 +1,4 @@
-<!-- TOC -->
-
-- [wiki](#wiki)
-- [安装（fcitx5、rime、clover）](#%E5%AE%89%E8%A3%85fcitx5rimeclover)
-- [配置](#%E9%85%8D%E7%BD%AE)
-    - [linux 环境](#linux-%E7%8E%AF%E5%A2%83)
-    - [开机启动](#%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8)
-    - [词库、配置文件目录](#%E8%AF%8D%E5%BA%93%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95)
-    - [启用四叶草](#%E5%90%AF%E7%94%A8%E5%9B%9B%E5%8F%B6%E8%8D%89)
-    - [模糊音](#%E6%A8%A1%E7%B3%8A%E9%9F%B3)
-    - [关闭emoji](#%E5%85%B3%E9%97%ADemoji)
-- [快捷键](#%E5%BF%AB%E6%8D%B7%E9%94%AE)
-- [词库](#%E8%AF%8D%E5%BA%93)
-    - [转换工具](#%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7)
-    - [格式](#%E6%A0%BC%E5%BC%8F)
-    - [四叶草配置词库](#%E5%9B%9B%E5%8F%B6%E8%8D%89%E9%85%8D%E7%BD%AE%E8%AF%8D%E5%BA%93)
-- [使用sougou皮肤](#%E4%BD%BF%E7%94%A8sougou%E7%9A%AE%E8%82%A4)
-
-<!-- /TOC -->
+[TOC]
 
 # wiki
 [四叶草](https://github.com/fkxxyz/rime-cloverpinyin/wiki)
@@ -160,6 +142,15 @@ import_tables:
   - fengjingmingsheng
   - jisuanji
 ```
+# 皮肤
+yay -S fcitx5-nord
 
-# 使用sougou皮肤
-https://www.fkxxyz.com/d/ssfconv2/
+```
+> vim ~/.config/fcitx5/conf/classicui.conf
+Theme=Nord-Dark
+# or
+Theme=Nord-Light
+```
+
+重启
+fcitx5 -r
