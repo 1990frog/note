@@ -56,6 +56,8 @@
 [FiraCode](https://github.com/tonsky/FiraCode)
 + sudo pacman -S ttf-fira-code
 
++ sudo pacman -S extra/ttf-firacode-nerd
+
 ## awesome 图标字体
 [fontawesome](https://fontawesome.com.cn/)
 + sudo pacman -S ttf-font-awesome
