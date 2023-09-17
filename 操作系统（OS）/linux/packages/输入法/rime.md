@@ -154,3 +154,16 @@ Theme=Nord-Light
 
 重启
 fcitx5 -r
+
+
+---
+
+jetbrain 无法输入中文
+
+[下载最新jrb](https://github.com/RikudouPatrickstar/JetBrainsRuntime-for-Linux-x64/releases)
+
+vim /etc/profix
+
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS="@im=fcitx5"
