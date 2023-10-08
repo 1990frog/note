@@ -365,3 +365,36 @@ R 移动文件
 :Texplore
 :Vexplore
 
+
+------------------
+
+# tabs
+
+Tabs就是windows的集合。它就像窗口的布局。在大部分的现代文本编辑器（还有现代互联网浏览器）中，一个tab意味着打开一个文件/页面，当您关闭标签，相应的文件/页面就消失了。但在Vim中，tab并不表示打开了一个文件。当您在Vim中关闭一个tab，您并不是关闭一个文件。您仅仅关闭了窗口布局。文件的数据依然存储在内存中的buffers中。
+
+打开新的tab
+:tabnew new.js
+
+下面的列表列出了一些有用的关于tab导航的命令：
+:tabnew file.txt    在tab中打开一个文件
+:tabclose           关闭当前tab
+:tabnext            切换至下一个tab
+:tabprevious        切换至前一个tab
+:tablast            切换至最后一个tab
+:tabfirst           切换至第一个tab
+
+您可以输入gt切换到下一个标签页（对应的，可以用gT切换到前一个标签页）。您也可以传递一个数字作为参数给gt，这个数字是tab的编号。若想切换到第3个tab，输入3gt。
+
+拥有多个tabs的好处是，您可以在不同的tab中使用不同的窗口布局。也许，您想让您的第1个tab包含3个垂直分割的窗口，然后让第2个tab为水平分割和垂直分割混合的窗口布局。tab是完成这件工作的完美工具!
+
+若想让Vim启动时就包含多个tabs，您可以在终端中运行如下命令：
+
+vim -p file1.js file2.js file3.js
+
+
+在windows之间移动就像在笛卡尔坐标系的二维平面上沿着X-Y轴移动。您可以使用Ctrl-W H/J/K/L移动到上面、右侧、下面、以及左侧的窗口。
+
+在buffer之间移动就像在笛卡尔坐标系的Z轴上穿梭。想象您的buffer文件在Z轴上呈线性排列，您可以使用:bnext和bprevious在Z轴上一次一个buffer地遍历。您也可以使用:buffer 文件名/buffer编号在Z轴上跳转到任意坐标。
+
+结合window和buffer的移动，您可以在 三维空间 中移动。您可以使用window导航命令移动到上面、右侧、下面、或左侧的窗口（X-Y平面导航）。因为每个window都可能包含了多个buffers，您可以使用buffer移动命令向前、向后移动（Z轴导航）。
+
