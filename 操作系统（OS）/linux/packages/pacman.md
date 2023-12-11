@@ -33,10 +33,15 @@ Include = /etc/pacman.d/mirrorlist
 ```
 
 安装
-> sudo pacman -S yay
+> sudo pacman -S yaysss
 
 更新GPD密钥
 > sudo pacman -Sy archlinuxcn-keyring
 
 #
-强烈建议开启 pacman 的颜色和多线程下载功能，编辑 /etc/pacman.conf 文件，将对应位置前 # 删除即可
+强烈建议开启 pacman 的颜色和多线程下载功能，编辑 /etc/pacman.conf 文件，将对应位置前 # 删除即可最后终于在一篇文章里看到了有用的方法（至少对于我来说是有用的）
+
+sudo rm -R /etc/pacman.d/gnupg
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman-key --populate archlinuxcn
