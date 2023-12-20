@@ -8,6 +8,8 @@
 > yay -S xorg-xrdb
 ```
 
+注：xorg-xwayland-hidpi-xprop 解决 jetbrain 窗口破碎
+
 ## 高分屏缩放
 ```
 # 告诉 wayland xwayland它自己会缩放两倍,让 wayland 不要管 xwayland 的缩放
