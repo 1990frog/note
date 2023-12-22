@@ -8,7 +8,6 @@
 [rufus](https://rufus.ie/zh/)
 使用 dd 模式烧盘
 
-
 # archinstall
 [archinstall](https://wiki.archlinuxcn.org/wiki/Archinstall?rdfrom=https%3A%2F%2Fwiki.archlinux.org%2Findex.php%3Ftitle%3DArchinstall_%28%25E7%25AE%2580%25E4%25BD%2593%25E4%25B8%25AD%25E6%2596%2587%29%26redirect%3Dno)
 
@@ -77,15 +76,16 @@
     iwd \
     refind \
     neovim \
-    amd-ucode
+    git
+    amd-ucode or intel-ucode
 ```
 + linux 内核
 + linux-firmware 硬件驱动
 + base 基本的用户工具
 + base-devel 基础的开发工具
 + neovim 编辑器
-+ [dhcpcd](../packages/dhcpcd.md) 有线网卡
-+ [iwd](../packages/iwd.md) 无线网卡
++ [dhcpcd](../packages/网络/dhcpcd.md) 有线网卡
++ [iwd](../packages/网络/iwd.md) 无线网卡
 + amd-ucode 微码
 
 ## step-4 配置系统

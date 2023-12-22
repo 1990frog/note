@@ -18,9 +18,9 @@
 
 # 浏览图片
 ```
-> sudo pacman -S ueberzug
+> sudo pacman -S python-pillow
 > vim rc.conf
 
 set preview_images true
-set preview_images_method ueberzug
+set preview_images_method kitty
 ```

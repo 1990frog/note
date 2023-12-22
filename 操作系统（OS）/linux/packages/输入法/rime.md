@@ -21,12 +21,11 @@ clover
 # 配置
 ## linux 环境
 ```
-> vim ~/.xprofile
-export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS="@im=fcitx5"
-export LANG="zh_CN.UTF-8"
-export LC_CTYPE="zh_CN.UTF-8"
+> vim /etc/environment
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+GLFW_IM_MODULE=ibus
 ```
 
 ## 开机启动
@@ -170,3 +169,11 @@ export XMODIFIERS="@im=fcitx5"
 
 vim /etc/locale.conf
 设置中文
+
+
+
+            fcitx5: 设置输入框的DPI: 
+
+ fcitx5-configtool->Addons -> Classic User Interface -> ✅ Use Per Screen DPI
+
+ fcitx5-configtool->Addons -> Classic User Interface -> Force Font DPI on Wayland 240 作者：st-_-st https://www.bilibili.com/read/cv24998287/ 出处：bilibili
