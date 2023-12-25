@@ -21,6 +21,13 @@ source /usr/share/nvm/init-nvm.sh
 > curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
+# 配置
+```
+> vim .zshrc
++ export NVM_DIR="$HOME/.nvm"
++ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
+
 # 命令
 ## 指定版本安装
 nvm i 14/15/16
