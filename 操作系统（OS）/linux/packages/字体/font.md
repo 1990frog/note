@@ -75,9 +75,9 @@ sudo vim /etc/fonts/conf.d/64-language-selector-prefer.conf
 	<alias>
 		<family>sans-serif</family>
 		<prefer>
-			<family>Noto Sans CJK JP</family>
 			<family>Noto Sans CJK SC</family>
 			<family>Noto Sans CJK TC</family>
+						<family>Noto Sans CJK JP</family>
 		</prefer>
 	</alias>
 	<alias>
