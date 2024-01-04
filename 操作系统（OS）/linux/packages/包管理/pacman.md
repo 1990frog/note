@@ -23,7 +23,7 @@
 # yay
 配置  archlinuxCN 仓库
 ```
-> sudo vim /etc/pacman.conf
+> sudo vim /etc/pacman.conpf
 //在最后添加
 [archlinuxcn]
 Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch

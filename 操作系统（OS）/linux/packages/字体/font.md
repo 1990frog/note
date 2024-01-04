@@ -45,6 +45,8 @@
 ```
 
 # 字体收藏
+## 中英文字体带图标
++ nerd-fonts-sarasa-term
 ## Noto Goole字体，noto没有豆腐方块
 谷歌开源字体Noto，包括中日韩字体、英文字体以及Emoji字体
 + sudo pacman -S noto-fonts: 大部分文字的常见样式，不包含汉字
@@ -62,10 +64,6 @@
 [fontawesome](https://fontawesome.com.cn/)
 + sudo pacman -S ttf-font-awesome
 
-
-
-
-
 # noto 日语问题
 sudo vim /etc/fonts/conf.d/64-language-selector-prefer.conf 
 
@@ -77,15 +75,15 @@ sudo vim /etc/fonts/conf.d/64-language-selector-prefer.conf
 		<prefer>
 			<family>Noto Sans CJK SC</family>
 			<family>Noto Sans CJK TC</family>
-						<family>Noto Sans CJK JP</family>
+			<family>Noto Sans CJK JP</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>monospace</family>
 		<prefer>
-			<family>Noto Sans Mono CJK JP</family>
 			<family>Noto Sans Mono CJK SC</family>
 			<family>Noto Sans Mono CJK TC</family>
+			<family>Noto Sans Mono CJK JP</family>
 		</prefer>
 	</alias>
 </fontconfig>

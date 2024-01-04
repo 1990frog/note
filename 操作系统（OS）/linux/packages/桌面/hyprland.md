@@ -62,7 +62,6 @@ mako
 - `playerctl`: 命令行播放控制
 - `xorg-xwayland`: 兼容x11应用
 - `JetBrainsMono Nerd Font`: 状态栏图标字体
-- `nerd-fonts-sarasa-term`: 中英文字体带图标, 等距更纱黑体
 - `pipewire` `pipewire-pulse` `pipewire-alsa` `wireplumber` `pavucontrol`: 音频相关
 - `xdg-user-dirs`: 创建常见用户文件夹
 - `btop`: 进程查看

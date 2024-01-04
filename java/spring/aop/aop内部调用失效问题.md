@@ -1,7 +1,5 @@
 [TOC]
 
-![9564807-de1289d215c69da0](https://raw.githubusercontent.com/1990frog/imagebed/default/1602319174_20200305135752919_1004907721.png)
-
 # 解决方案
 + 方法一：直接从BeanFactory中获取再次代理Bean
 + 方法二：从AopContext中获取代理Bean`@EnableAspectJAutoProxy(exposeProxy = true)`
