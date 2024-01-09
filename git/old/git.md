@@ -1,17 +1,6 @@
 [TOC]
 # 仓库配置
 ## 配置
-### 显示当前的git配置
-git config --list
-### 编辑git配置文件[全局]
-git config -e [--global]
-### 设置提交用户信息
-git config [--global] user.name "[name]"
-git config [--global] user.email "[email address]"
-### 添加远程仓库地址
-git remote add origin [远程仓库地址]
-### 修改远程仓库地址
-git remote set-url origin [远程仓库地址]
 
 
 # 查看状态
