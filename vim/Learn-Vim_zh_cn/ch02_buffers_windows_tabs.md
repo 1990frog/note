@@ -1,3 +1,5 @@
+[TOC]
+
 # 第2章 缓冲区(Buffers)，窗口(Windows)和选项卡(Tabs)
 
 (译者注：在Vim中，Buffers缓冲区，Windows窗口，Tabs选项卡是专有名词。为适应不同读者的翻译习惯，确保没有歧义，本文将不对Buffers、Windows、Tabs这三个词进行翻译)。  

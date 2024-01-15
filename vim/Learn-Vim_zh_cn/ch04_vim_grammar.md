@@ -1,17 +1,5 @@
-<!-- TOC -->
+[TOC]
 
-- [第4章 Vim 语法](#%E7%AC%AC4%E7%AB%A0-vim-%E8%AF%AD%E6%B3%95)
-    - [如何学习一门语言](#%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E4%B8%80%E9%97%A8%E8%AF%AD%E8%A8%80)
-    - [语法规则](#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99)
-    - [名词动作 Motion](#%E5%90%8D%E8%AF%8D%E5%8A%A8%E4%BD%9C-motion)
-    - [动词操作符 Operator](#%E5%8A%A8%E8%AF%8D%E6%93%8D%E4%BD%9C%E7%AC%A6-operator)
-    - [动词（操作符 Operator）和名词（动作 motions）的结合](#%E5%8A%A8%E8%AF%8D%E6%93%8D%E4%BD%9C%E7%AC%A6-operator%E5%92%8C%E5%90%8D%E8%AF%8D%E5%8A%A8%E4%BD%9C-motions%E7%9A%84%E7%BB%93%E5%90%88)
-    - [更多名词文本对象 Text Objects](#%E6%9B%B4%E5%A4%9A%E5%90%8D%E8%AF%8D%E6%96%87%E6%9C%AC%E5%AF%B9%E8%B1%A1-text-objects)
-    - [结合性和语法](#%E7%BB%93%E5%90%88%E6%80%A7%E5%92%8C%E8%AF%AD%E6%B3%95)
-    - [聪明地学习语法](#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0%E8%AF%AD%E6%B3%95)
-    - [链接](#%E9%93%BE%E6%8E%A5)
-
-<!-- /TOC -->
 # 第4章 Vim 语法
 
 刚接触Vim时很容易被Vim许多复杂的命令吓到，如果你看到一个Vim的用户使用`gUfV`或`1GdG`，你可能不能立刻想到这些命令是在做什么。这一章中，我将把Vim命令的结构拆分成一个简单的语法规则进行讲解。
