@@ -6,6 +6,8 @@
 # 安装
 yay -S bluez bluez-utils blueman
 
+systemctl start bluetooth
+
 # win10、arch蓝牙同步
 windows
 1. 下载psexec(https://docs.microsoft.com/en-us/sysinternals/downloads/psexec)
