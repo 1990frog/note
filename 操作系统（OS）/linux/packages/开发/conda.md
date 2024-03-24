@@ -1,11 +1,11 @@
 [TOC]
 
 # 安装
-yay -S miniconda
+yay -S aur/miniconda3
 
 # 配置变量
 ```
-export PATH=/opt/anaconda/bin:$PATH
+export PATH=/opt/miniconda3/bin:$PATH
 ```
 
 # 初始化

@@ -79,3 +79,5 @@ mako
 swaylock
 
 udiskie
+
+rofi-lbonn-wayland
