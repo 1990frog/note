@@ -23,7 +23,7 @@
 # yay
 配置  archlinuxCN 仓库
 ```
-> sudo vim /etc/pacman.conpf
+> sudo vim /etc/pacman.conf
 //在最后添加
 [archlinuxcn]
 Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
@@ -33,7 +33,7 @@ Include = /etc/pacman.d/mirrorlist
 ```
 
 安装
-> sudo pacman -S yaysss
+> sudo pacman -S yay
 
 更新GPD密钥
 > sudo pacman -Sy archlinuxcn-keyring
