@@ -1,11 +1,11 @@
 [TOC]
 
 # 安装
-yay -S miniconda
+yay -S aur/miniconda3
 
 # 配置变量
 ```
-export PATH=/opt/anaconda/bin:$PATH
+export PATH=/opt/miniconda3/bin:$PATH
 ```
 
 # 初始化
@@ -19,6 +19,31 @@ Currently supported shells are:
   - zsh
   - powershell
 ```
+
+# 配置源
+```shell
+> vim .condarc
+
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+
+> conda clean -i
+```
+
+
 
 ---
 

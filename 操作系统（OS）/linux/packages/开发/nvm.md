@@ -21,13 +21,11 @@ source /usr/share/nvm/init-nvm.sh
 > curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
-# 环境变量
+# 配置
 ```
-# vim .zshrc
-# source .zshrc
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+> vim .zshrc
++ export NVM_DIR="$HOME/.nvm"
++ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 ```
 
 # 命令
