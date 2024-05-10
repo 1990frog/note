@@ -1,96 +1,5 @@
 [TOC]
 
-<font color="red">wait(),notify(),notifyAll()必须要在Synchronized关键中使用</font>
-
-# wait()
-当前调用synchronized修饰代码的线程进入阻塞状态（wait）,立刻让出锁
-```java
-public class WaitDemo implements Runnable {
-
-
-    @Override
-    public void run() {
-        play1();
-    }
-
-    public synchronized void play1() {
-        System.out.println(Thread.currentThread().getName());
-        try {
-            if("thread1".equals(Thread.currentThread().getName())){
-//                wait();
-            }else {
-                notify();
-                System.out.println("notify ....");
-            }
-//            TimeUnit.SECONDS.sleep(10);
-            wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(Thread.currentThread().getName() + " is stop");
-    }
-
-
-    public static void main(String[] args) throws InterruptedException {
-        WaitDemo demo = new WaitDemo();
-        Thread thread1 = new Thread(demo);
-        thread1.setName("thread1");
-        Thread thread2 = new Thread(demo);
-        thread2.setName("thread2");
-        thread1.start();
-        thread2.start();
-        thread1.join();
-        thread2.join();
-        System.out.println("all stop");
-    }
-}
-
-```
-# notify()/notifyAll()
-会在执行完毕后续可执行的代码之后让出锁唤醒
-```java
-public class WaitDemo implements Runnable {
-
-
-    @Override
-    public void run() {
-        play1();
-    }
-
-    public synchronized void play1() {
-        System.out.println(Thread.currentThread().getName());
-        try {
-            if("thread1".equals(Thread.currentThread().getName())){
-                wait();
-            }else {
-                notify();
-                System.out.println("notify ....");
-            }
-            TimeUnit.SECONDS.sleep(10);
-//            wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(Thread.currentThread().getName() + " is stop");
-    }
-
-
-    public static void main(String[] args) throws InterruptedException {
-        WaitDemo demo = new WaitDemo();
-        Thread thread1 = new Thread(demo);
-        thread1.setName("thread1");
-        Thread thread2 = new Thread(demo);
-        thread2.setName("thread2");
-        thread1.start();
-        thread2.start();
-        thread1.join();
-        thread2.join();
-        System.out.println("all stop");
-    }
-}
-```
 
 # 重点
 每个对象都可以被认为是一个"监视器monitor"，这个监视器由三部分组成（一个独占锁，一个入口队列，一个等待队列）。
@@ -106,7 +15,6 @@ public class WaitDemo implements Runnable {
 某个线程调用notify(),notifyAll()方法是将等待队列的线程转移到入口队列，然后让他们竞争锁，所以这个调用线程本身必须拥有锁。
 
 调用`wait()`就是释放锁，释放锁的前提是必须要先获得锁，先获得锁才能释放锁
-调用`notify()`是将锁交给含有`wait()`方法的线程，让其继续执行下去，如果自身没有锁，怎么叫把锁交给其他线程呢；（本质是让处于入口队列的线程竞争锁）
 
 # Block阻塞阶段
 直到以下4种情况之一发生时，才会被唤醒
