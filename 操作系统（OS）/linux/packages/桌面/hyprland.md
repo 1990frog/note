@@ -4,8 +4,7 @@
 
 # install
 ```
-> yay -S xorg-xwayland-hidpi-xprop wlroots-hidpi-xprop-git hyprland-hidpi-xprop-git
-> yay -S xorg-xrdb
+> yay -S xorg-xwayland-hidpi-xprop wlroots-hidpi-xprop-git hyprland-hidpi-xprop-git xorg-xrdb
 ```
 
 注：xorg-xwayland-hidpi-xprop 解决 jetbrain 窗口破碎
