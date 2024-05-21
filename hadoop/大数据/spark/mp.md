@@ -28,3 +28,4 @@ mvn archetype:generate -DarchetypeGroupId=net.alchim31.maven -DarchetypeArtifact
 
 
 
+# RDD (Resilient Distributed Dataset)
