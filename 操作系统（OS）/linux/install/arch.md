@@ -136,16 +136,18 @@ hostname（主机名）
 ## archlinuxcn
 ```shell
 > sudo vim /etc/pacman.conf
-//在最后添加
 [archlinuxcn]
-SigLevel = Optional TrussAll
-Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
-//顺便找到这一行，取消注释
-[multilib]
-Include = /etc/pacman.d/mirrorlist
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
+> sudo pacman-key --lsign-key "farseerfc@archlinux.org"
 > sudo pacman -Sy archlinuxcn-keyring
 > sudo pacman -S yay
+```
+
+## archlinux
+```shell
+> /etc/pacman.d/mirrorlist
+Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 ```
 
 ## 网络驱动
@@ -159,7 +161,7 @@ Include = /etc/pacman.d/mirrorlist
 ## 蓝牙驱动
 ```shell
 # blueman方案
-> yay -S bluez bluez-utils blueman
+> sudo pacman -S bluez bluez-utils blueman
 > systemctl enable --now bluetooth
 
 # KDE方案
@@ -180,3 +182,13 @@ KDE
 > sudo pacman -S plasma
 > startplasma-wayland
 ```
+
+## 时间
+sudo pacman -S ntp
+sudo ntpdate ntp.aliyun.com
+
+# vscode
+sudo pacman -S vscodium
+
+
+--force-device-scale-factor=1.5
