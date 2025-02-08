@@ -1,36 +1,31 @@
 <!-- TOC -->
 
-- [前提](#%E5%89%8D%E6%8F%90)
-- [添加box（镜像）](#%E6%B7%BB%E5%8A%A0box%E9%95%9C%E5%83%8F)
-- [初始化](#%E5%88%9D%E5%A7%8B%E5%8C%96)
-- [启动](#%E5%90%AF%E5%8A%A8)
-- [停止](#%E5%81%9C%E6%AD%A2)
-- [销毁](#%E9%94%80%E6%AF%81)
-- [打开tty](#%E6%89%93%E5%BC%80tty)
 - [查看状态](#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81)
 - [查看ssh](#%E6%9F%A5%E7%9C%8Bssh)
+- [修改内存](#%E4%BF%AE%E6%94%B9%E5%86%85%E5%AD%98)
+- [常用命令](#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4)
+    - [box 管理box镜像box是创建虚拟机的模板](#box-%E7%AE%A1%E7%90%86box%E9%95%9C%E5%83%8Fbox%E6%98%AF%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E6%A8%A1%E6%9D%BF)
+    - [init 初始化项目目录，将在当前目录下生成Vagrantfile文件](#init-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%B0%86%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%94%9F%E6%88%90vagrantfile%E6%96%87%E4%BB%B6)
+    - [up 启动虚拟机，第一次执行将创建并初始化并启动虚拟机](#up-%E5%90%AF%E5%8A%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%89%A7%E8%A1%8C%E5%B0%86%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B9%B6%E5%90%AF%E5%8A%A8%E8%99%9A%E6%8B%9F%E6%9C%BA)
+    - [reload 重启虚拟机](#reload-%E9%87%8D%E5%90%AF%E8%99%9A%E6%8B%9F%E6%9C%BA)
+    - [halt 将虚拟机关机](#halt-%E5%B0%86%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%B3%E6%9C%BA)
+    - [destroy 删除虚拟机（包括虚拟机文件）](#destroy-%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8C%85%E6%8B%AC%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%96%87%E4%BB%B6)
+    - [suspend 暂停休眠、挂起虚拟机](#suspend-%E6%9A%82%E5%81%9C%E4%BC%91%E7%9C%A0%E6%8C%82%E8%B5%B7%E8%99%9A%E6%8B%9F%E6%9C%BA)
+    - [resume 恢复已暂停休眠、挂起的虚拟机](#resume-%E6%81%A2%E5%A4%8D%E5%B7%B2%E6%9A%82%E5%81%9C%E4%BC%91%E7%9C%A0%E6%8C%82%E8%B5%B7%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA)
+    - [snapshot 管理虚拟机快照hyperv中叫检查点](#snapshot-%E7%AE%A1%E7%90%86%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%BF%AB%E7%85%A7hyperv%E4%B8%AD%E5%8F%AB%E6%A3%80%E6%9F%A5%E7%82%B9)
+    - [status 列出当前目录Vagrantfile所在目录下安装的虚拟机列表及它们的状态](#status-%E5%88%97%E5%87%BA%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95vagrantfile%E6%89%80%E5%9C%A8%E7%9B%AE%E5%BD%95%E4%B8%8B%E5%AE%89%E8%A3%85%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%88%97%E8%A1%A8%E5%8F%8A%E5%AE%83%E4%BB%AC%E7%9A%84%E7%8A%B6%E6%80%81)
+    - [global-status 列出全局已安装虚拟机列表及它们的状态](#global-status-%E5%88%97%E5%87%BA%E5%85%A8%E5%B1%80%E5%B7%B2%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%88%97%E8%A1%A8%E5%8F%8A%E5%AE%83%E4%BB%AC%E7%9A%84%E7%8A%B6%E6%80%81)
+    - [ssh 通过ssh连接虚拟机](#ssh-%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA)
+    - [ssh-config 输出ssh连接虚拟机时使用的配置项](#ssh-config-%E8%BE%93%E5%87%BAssh%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E4%BD%BF%E7%94%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E9%A1%B9)
+    - [port 查看各虚拟机映射的端口列表hyperv不支持该功能](#port-%E6%9F%A5%E7%9C%8B%E5%90%84%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%98%A0%E5%B0%84%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8hyperv%E4%B8%8D%E6%94%AF%E6%8C%81%E8%AF%A5%E5%8A%9F%E8%83%BD)
+- [vagrant 网络](#vagrant-%E7%BD%91%E7%BB%9C)
+    - [private_network](#private_network)
+    - [public_network](#public_network)
+- [config.vm.synced_folder](#configvmsynced_folder)
+- [文档](#%E6%96%87%E6%A1%A3)
+- [boxes](#boxes)
 
 <!-- /TOC -->
-# 前提
-virtualbox
-
-# 添加box（镜像）
-vagrant box add centos/7
-
-# 初始化
-vagrant init centos/7
-
-# 启动
-vagrant up
-
-# 停止
-vagrant halt
-
-# 销毁
-vagrant destroy
-
-# 连接虚拟机
-vagrant ssh
 
 手动ssh连接
 vagrant ssh-config
@@ -327,3 +322,133 @@ Vagrant.configure("2") do |config|
 end
 
 网络使用的是私有网络，私有网络和公有网络区别可以看下文
+
+---
+
+# 常用命令
+## box 管理box镜像(box是创建虚拟机的模板)
+```bash
+vagrant box add centos/7
+```
+
+## init 初始化项目目录，将在当前目录下生成Vagrantfile文件
+```bash
+vagrant init centos/7
+```
+
+## up 启动虚拟机，第一次执行将创建并初始化并启动虚拟机
+```bash
+vagrant up
+```
+
+## reload 重启虚拟机
+```bash
+vagrant reload
+```
+
+## halt 将虚拟机关机
+```bash
+vagrant reload
+```
+
+## destroy 删除虚拟机（包括虚拟机文件）
+```bash
+vagrant destroy
+```
+
+## suspend 暂停(休眠、挂起)虚拟机
+```bash
+vagrant suspend
+```
+
+## resume 恢复已暂停(休眠、挂起)的虚拟机
+```bash
+vagrant resume
+```
+
+## snapshot 管理虚拟机快照(hyperv中叫检查点)
+```bash
+vagrant shapshot -h
+Available subcommands:
+     delete
+     list
+     pop
+     push
+     restore
+     save
+
+For help on any individual subcommand run `vagrant snapshot <subcommand> -h`
+        --[no-]color                 Enable or disable color output
+        --machine-readable           Enable machine readable output
+    -v, --version                    Display Vagrant version
+        --debug                      Enable debug output
+        --timestamp                  Enable timestamps on log output
+        --debug-timestamp            Enable debug output with timestamps
+        --no-tty                     Enable non-interactive output
+```
+## status 列出当前目录(Vagrantfile所在目录)下安装的虚拟机列表及它们的状态
+```bash
+vagrant status
+```
+
+## global-status 列出全局已安装虚拟机列表及它们的状态
+```bash
+vagrant global-status
+```
+
+## ssh 通过ssh连接虚拟机
+```bash
+vagrant ssh
+vagrant ssh vm1
+```
+
+## ssh-config 输出ssh连接虚拟机时使用的配置项
+```bash
+
+```
+
+## port 查看各虚拟机映射的端口列表(hyperv不支持该功能)
+
+# vagrant 网络
+## private_network
+私有网络，对应于virtualbox的host-only网络模型，这种模型下，虚拟机之间和宿主机(的虚拟网卡)之间可以互相通信，但不在该网络内的设备无法访问虚拟机
+
+如果私有网络的虚机不在一个网络，vagrant为这些private_network网络配置的IP地址并不在同一个网段。vagrant会自动为不同网段创建对应的host-only网络。
+
+所以使用private_network如果没有外部机器(虚拟机宿主机之外的机器)连接，使用这种方式设置的静态ip，能够摆脱主机网络变换的限制。
+
+```
+vb1.vm.network "private_network", ip: "192.168.56.2"
+```
+
+## public_network
+公有网络，对应于virtualbox的桥接模式，这种模式下，虚拟机的网络和宿主机的物理网卡是平等的，它们在同一个网络内，虚拟机可以访问外网，外界网络(特指能访问物理网卡的设备)也能访问虚拟机
+
+vagrant为virtualbox配置的public_network，其本质是将虚拟机加入到了virtualbox的桥接网络内。
+
+vagrant在将虚拟机的网卡加入桥接网络时，默认会交互式地询问用户要和哪个宿主机上的网卡进行桥接，一般来说，应该选择可以上外网的物理设备进行桥接。
+
+由于需要非交互式选择或者需要先指定要桥接的设备名，而且不同用户的网络环境不一样，因此如非必要，一般不在vagrant中为虚拟机配置public_network。
+
+公有网络的iP网络要和主机的网段一致。
+
+
+# config.vm.synced_folder
+用于将主机（Host）上的目录同步到虚拟机（Guest）中。这对于开发环境非常有用，因为你可以在主机上编辑代码，同时在虚拟机中运行和测试代码。
+
+语法
+config.vm.synced_folder "主机目录", "虚拟机目录", 选项
+
+
+# 文档
+https://developer.hashicorp.com/vagrant/docs
+
+
+
+
+# boxes
+https://portal.cloud.hashicorp.com/vagrant/discover
+
+
+
+https://www.bilibili.com/video/BV14A411u79f?spm_id_from=333.788.videopod.sections&vd_source=75b5a4665a5280dc40c714fc1ad5c04b

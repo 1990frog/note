@@ -21,6 +21,8 @@ Vagrant.configure("2") do |config|
     end
     vm1.vm.host_name = "node1"
     vm1.vm.box = "centos/7"
+    vm1.ssh.insert_key = false
+    vm1.vbguest.auto_update = false
     vm1.vm.network "private_network", ip: "192.168.56.2"
   end
 
@@ -31,6 +33,8 @@ Vagrant.configure("2") do |config|
     end
     vm2.vm.host_name = "node2"
     vm2.vm.box = "centos/7"
+    vm2.ssh.insert_key = false
+    vm2.vbguest.auto_update = false
     vm2.vm.network "private_network", ip: "192.168.56.3"
   end
 
@@ -41,6 +45,8 @@ Vagrant.configure("2") do |config|
     end
     vm3.vm.host_name = "node3"
     vm3.vm.box = "centos/7"
+    vm3.ssh.insert_key = false
+    vm3.vbguest.auto_update = false
     vm3.vm.network "private_network", ip: "192.168.56.4"
   end
 
