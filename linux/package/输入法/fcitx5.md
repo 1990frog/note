@@ -183,3 +183,5 @@ vim /etc/locale.conf
  ---
 
  print-manager
+
+ kwindowsystem

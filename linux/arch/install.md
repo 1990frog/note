@@ -22,6 +22,15 @@
 # 传统安装方式（推荐）
 [wiki](https://wiki.archlinuxcn.org/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97)
 
+## 更新系统时间
+在 Live 环境中 systemd-timesyncd 默认启用，也就是说当系统已经建立互联网连接后，系统时间将自动同步。
+
+使用 timedatectl(1) 确保系统时间是同步的，建议提前执行 timedatectl set-timezone 地区/城市（中国用户可以使用 timedatectl set-timezone Asia/Shanghai 以设置北京时间）： 
+```bash
+> timedatectl
+> timedatectl set-timezone Asia/Shanghai
+```
+
 ## 分区
 ```shell
 # 查看磁盘
@@ -29,7 +38,7 @@
 
 # cfdisk分区
 > cfdisk /dev/磁盘
-/boot fat32 1GB
+/boot fat32 2GB
 /     ext4  全部
 
 # 格式化
@@ -48,8 +57,19 @@
 > swapon /dev/swap_partition（交换空间分区）
 ```
 
+## 选择镜像站
+```bash
+> curl -L 'https://archlinux.org/mirrorlist/?country=CN&protocol=https' -o /etc/pacman.d/mirrorlist
+```
+
+## 更新密钥环
+Live 系统里面的镜像环很容易过时，使用过时的镜像安装系统很容易导致在 pacstrap 的时候无法正常地安装包（提示为文件签名损坏）。 
+```bash
+> pacman -S archlinux-keyring
+```
+
 ## 安装包
-```shell
+```bash
 > pacstrap -K /mnt 
     base \
     base-devel \
@@ -74,12 +94,12 @@
 
 
 ## 生成fstab文件
-```
+```bash
 > genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
 ## chroot到新安装的系统
-```
+```bash
 > arch-chroot /mnt
 ```
 
@@ -124,71 +144,59 @@ hostname（主机名）
 ```
 
 ## 引导
-```
+```bash
 > refind-install
 > vim -O /boot/refind_linux.conf /etc/fstab
-
+# UUID 为根目录
 "Boot with standard options"  "ro root=UUID=0e4c6521-123b-4a81-b328-26537a6f88ee splash=silent quiet showopts"
 "Boot to single-user mode"    "ro root=UUID=0e4c6521-123b-4a81-b328-26537a6f88ee splash=silent quiet showopts single"
 "Boot with minimal options"   "ro root=UUID=0e4c6521-123b-4a81-b328-26537a6f88ee"
 ```
 
 ## archlinuxcn
-```shell
+```bash
 > sudo vim /etc/pacman.conf
 [archlinuxcn]
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
-
-> sudo pacman-key --lsign-key "farseerfc@archlinux.org"
 > sudo pacman -Sy archlinuxcn-keyring
 > sudo pacman -S yay
 ```
 
-## archlinux
-```shell
-> /etc/pacman.d/mirrorlist
-Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
-```
-
 ## 网络驱动
-```shell
+```bash
+# 必备
 > systemctl enable --now dhcpcd
 > systemctl enable --now iwd
-> sudo pacman -S plasma-nm
-> systemctl enable --now NetworkManager
+# KDE 方案
+# > sudo pacman -S plasma-nm
+# > systemctl enable --now NetworkManager
 ```
 
 ## 蓝牙驱动
-```shell
+```bash
 # blueman方案
 > sudo pacman -S bluez bluez-utils blueman
 > systemctl enable --now bluetooth
 
-# KDE方案
->  sudo pacman -S bluedevil
+# KDE 方案
+# >  sudo pacman -S bluedevil
 ```
 
 ## 声卡u驱动
-```shell
+```bash
 > sudo pacman -S pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber
 > systemctl --user enable --now pipewire.socket
 > systemctl --user enable --now pipewire-pulse.socket
 > systemctl --user enable --now wireplumber.service
 ```
 
-## 桌面
-KDE
-```shell
-> sudo pacman -S plasma
-> startplasma-wayland
+## 必备文件夹
+```bash
+> sudo pacman -S xdg-user-dirs
 ```
 
-## 时间
-sudo pacman -S ntp
-sudo ntpdate ntp.aliyun.com
-
-# vscode
-sudo pacman -S vscodium
-
-
---force-device-scale-factor=1.5
+## 安装桌面
+### Hyprland
+```bash
+> sudo pacman -S hyprland
+```

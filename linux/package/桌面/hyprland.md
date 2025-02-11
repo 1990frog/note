@@ -1,6 +1,67 @@
 [TOC]
 
+# WIKI
 [wiki](https://hyprland.org/)
+
+
+# 安装
+```bash
+> sudo pacman -S hyprland
+> sudo pacman -S mako
+> sudo pacman -S waybar
+> sudo pacman -S kitty
+> sudo pacman -S firefox
+```
+
+
+# 配置
+```bash
+> vim .config/hypr/hyprland.conf
+
+# See https://wiki.hyprland.org/Configuring/Monitors/                                                                 
+monitor=DP-1,3840x2160,0x0,1,bitdepth,10                                                                              
+monitor=DP-2,3840x2160,3840x0,1,bitdepth,10                                                                           
+                                                                                                                      
+workspace = 1, monitor:DP-1, default:true                                                                             
+workspace = 2, monitor:DP-1, default:true                                                                             
+workspace = 3, monitor:DP-1, default:true                                                                             
+workspace = 4, monitor:DP-1, default:true                                                                             
+workspace = 5, monitor:DP-1, default:true                                                                             
+workspace = 6, monitor:DP-2, default:true                                                                             
+workspace = 7, monitor:DP-2, default:true                                                                             
+workspace = 8, monitor:DP-2, default:true                                                                             
+workspace = 9, monitor:DP-2, default:true                                                                             
+workspace = 0, monitor:DP-2, default:true   
+
+exec-once = waybar &                                                                                                  
+exec-once = mako &                                                                                                    
+exec-once = fcitx5 &                                                                                                  
+exec-once = hyprpaper &     
+
+bind = $mainMod, Q, exec, $terminal                                                                                   
+bind = $mainMod, C, killactive,                                                                                       
+bind = $mainMod, F, exec, firefox                                                                                     
+bind = $mainMod, E, exec, $fileManager                                                                                
+bind = $mainMod, V, togglefloating,                                                                                   
+bind = $mainMod, SPACE, exec, $menu                                                                                   
+bind = $mainMod, P, pseudo, # dwindle                                                                                 
+bind = $mainMod, J, togglesplit, # dwindle                                                                            
+bind = $mainMod SHIFT, M, exit,   
+```
+
+# hyprlock
+
+# hyprpaper
+
+
+
+
+
+
+
+---
+
+OLD
 
 # install
 ```
