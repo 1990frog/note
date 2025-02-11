@@ -86,7 +86,7 @@
 ## 设置时区
 [系统时间](https://wiki.archlinuxcn.org/wiki/%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4)
 ```
-> ln -sf /usr/share/zoneinfo/Asia/Chongqing /etc/localtime
+> ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
 ## 区域和本地化设置

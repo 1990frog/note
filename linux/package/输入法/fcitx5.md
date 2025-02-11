@@ -177,3 +177,9 @@ vim /etc/locale.conf
  fcitx5-configtool->Addons -> Classic User Interface -> ✅ Use Per Screen DPI
 
  fcitx5-configtool->Addons -> Classic User Interface -> Force Font DPI on Wayland 240 作者：st-_-st https://www.bilibili.com/read/cv24998287/ 出处：bilibili
+
+
+
+ ---
+
+ print-manager
