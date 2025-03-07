@@ -34,7 +34,7 @@ k向上移动
 l向右移动
 
 Space：光标右移一个字符
-Backspace：光标坐移一个字符
+Backspace：光标左移一个字符
 Enter：光标下移一行
 
 w/W：移到下一个word/WORD开头（WORD以空白符分割的单词）
