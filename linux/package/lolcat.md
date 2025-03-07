@@ -1,4 +1,0 @@
-[TOC]
-
-
-neofetch | lolcat

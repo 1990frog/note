@@ -1,3 +1,0 @@
-top
-htop
-bashtop

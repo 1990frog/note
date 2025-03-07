@@ -1,8 +1,0 @@
-[TOC]
-
-
-# cfdisk
-
-# gdisk
-
-# fdisk
