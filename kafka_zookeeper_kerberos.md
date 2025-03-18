@@ -266,11 +266,12 @@ KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_server.jaa
   JVMFLAGS="-Djava.security.auth.login.config=/opt/zookeeper/conf/zookeeper.jaas -Dsun.security.krb5.debug=true" ZOO_LOG_DIR="/home/cai/logs/zookeeper/log" ZOO_LOG4J_PROP=TRACE,CONSOLE,ROLLINGFILE bin/zkServer.sh start
 
 
-  export KAFKA_OPTS=-Djava.security.auth.login.config=config/kafka_client.jaas
-
-  ./bin/kafka-topics.sh --create \ 
-  --bootstrap-server kafka:9092 \
-  --topic test-topic \
-  --partitions 1 \
-  --replication-factor 1 \
---command-config config/client-kerberos.properties
+  KafkaClient {
+    com.sun.security.auth.module.Krb5LoginModule required
+    useKeyTab=true
+    keyTab="/tmp/kafka.keytab"
+    storeKey=true
+    useTicketCache=true
+    renewTGT=true
+    principal="kafka/kafka@EXAMPLE.COM";
+};
