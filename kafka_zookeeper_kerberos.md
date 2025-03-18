@@ -1,8 +1,8 @@
 
 # kerbreros
 kdb5_util create -r EXAMPLE.COM -s
-sudo kadmin.local -q "add_principal -randkey zookeeper/zookeeper@EXAMPLE.COM
-sudo kadmin.local -q "add_principal -randkey kafka/kafka@EXAMPLE.COM
+sudo kadmin.local -q "add_principal -randkey zookeeper/zookeeper@EXAMPLE.COM"
+sudo kadmin.local -q "add_principal -randkey kafka/kafka@EXAMPLE.COM"
 
 sudo kadmin.local -q "ktadd -k /tmp/zookeeper.keytab zookeeper/zookeeper@EXAMPLE.COM"
 sudo kadmin.local -q "ktadd -k /tmp/kafka.keytab kafka/kafka@EXAMPLE.COM"
@@ -251,3 +251,26 @@ KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_server.jaa
   
 
   JVMFLAGS="-Djava.security.auth.login.config=/opt/zookeeper/conf/zookeeper.jaas -Dsun.security.krb5.debug=true" ZOO_LOG_DIR="/home/zookeeper/log" ZOO_LOG4J_PROP=TRACE,CONSOLE,ROLLINGFILE bin/zkServer.sh start-foreground
+  
+
+  KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_server.jaas -Dsun.security.krb5.debug=true -Djava.security.krb5.conf=/etc/krb5.conf -Xmx2048M -Xms2048M" ./kafka-topics.sh --create \
+  --bootstrap-server localhost:9092 \
+  --replication-factor 1 \
+  --partitions 3 \
+  --topic test-topic
+  
+  KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka.jaas -Dsun.security.krb5.debug=true -Djava.security.krb5.conf=/etc/krb5.conf -Xmx2048M -Xms2048M" \                                                    
+  bin/kafka-server-start.sh config/server-kerberos.properties
+  
+
+  JVMFLAGS="-Djava.security.auth.login.config=/opt/zookeeper/conf/zookeeper.jaas -Dsun.security.krb5.debug=true" ZOO_LOG_DIR="/home/cai/logs/zookeeper/log" ZOO_LOG4J_PROP=TRACE,CONSOLE,ROLLINGFILE bin/zkServer.sh start
+
+
+  export KAFKA_OPTS=-Djava.security.auth.login.config=config/kafka_client.jaas
+
+  ./bin/kafka-topics.sh --create \ 
+  --bootstrap-server kafka:9092 \
+  --topic test-topic \
+  --partitions 1 \
+  --replication-factor 1 \
+--command-config config/client-kerberos.properties
