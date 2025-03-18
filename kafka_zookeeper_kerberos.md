@@ -275,3 +275,6 @@ KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_server.jaa
     renewTGT=true
     principal="kafka/kafka@EXAMPLE.COM";
 };
+
+export KAFKA_OPTS=-Djava.security.auth.login.config=config/kafka_client.jaas
+./bin/kafka-topics.sh --create --bootstrap-server kafka:9092  --replication-factor 1  --partitions 1  --topic test-topic --command-config config/client-kerberos.properties
