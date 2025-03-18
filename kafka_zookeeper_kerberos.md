@@ -263,14 +263,14 @@ KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_server.jaa
   bin/kafka-server-start.sh config/server-kerberos.properties
   
 
-  JVMFLAGS="-Djava.security.auth.login.config=/opt/zookeeper/conf/zookeeper.jaas -Dsun.security.krb5.debug=true" ZOO_LOG_DIR="/home/cai/logs/zookeeper/log" ZOO_LOG4J_PROP=TRACE,CONSOLE,ROLLINGFILE bin/zkServer.sh start
+  JVMFLAGS="-Djava.security..login.config=/opt/zookeeper/conf/zookeeper.jaas -Dsun.security.krb5.debug=true" ZOO_LOG_DIR="/home/cai/logs/zookeeper/log" ZOO_LOG4J_PROP=TRACE,CONSOLE,ROLLINGFILE bin/zkServer.sh start
 
 
   KafkaClient {
     com.sun.security.auth.module.Krb5LoginModule required
     useKeyTab=true
     keyTab="/tmp/kafka.keytab"
-    storeKey=true
+    storeKey=trueauth
     useTicketCache=true
     renewTGT=true
     principal="kafka/kafka@EXAMPLE.COM";
@@ -278,3 +278,23 @@ KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_server.jaa
 
 export KAFKA_OPTS=-Djava.security.auth.login.config=config/kafka_client.jaas
 ./bin/kafka-topics.sh --create --bootstrap-server kafka:9092  --replication-factor 1  --partitions 1  --topic test-topic --command-config config/client-kerberos.properties
+
+
+config/client-kerberos.properties
+
+# 安全协议配置
+security.protocol=SASL_PLAINTEXT
+sasl.mechanism=GSSAPI
+sasl.kerberos.service.name=kafka
+# 可选：Kerberos 调试（排查问题时启用）
+sasl.kerberos.debug=true
+
+
+
+
+
+KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka.jaas -Dsun.security.krb5.debug=true -Djava.security.krb5.conf=/etc/krb5.conf -Xmx2048M -Xms2048M" bin/kafka-topics.sh --create \
+  --bootstrap-server localhost:9092 \
+  --replication-factor 1 \
+  --partitions 3 \
+  --topic test-topic
