@@ -13,4 +13,4 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 conda install -c conda-forge openssl=3.2.0
 
-pip install --no-binary confluent-kafka
+pip install --no-binary confluent_kafka
